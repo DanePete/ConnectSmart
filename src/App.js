@@ -10,14 +10,6 @@ import { Software } from './models';
 Amplify.configure(awsconfig)
 
 function App() {
-  
-
-  await DataStore.save(
-    new Software({
-		"Title": "Lorem ipsum dolor sit amet"
-	})
-);
-
   return (
     <AmplifyAuthenticator>
       <AmplifySignUp
