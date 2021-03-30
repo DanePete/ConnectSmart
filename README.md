@@ -5,4 +5,5 @@ React hooked up to AWS Amplfiy.
 - Login/Authentication
 - Same page UI throughout
 - Making them API calls (AWS Amplify)
-- Good enough 
+- Play around with testing libraries
+- Good Enough
