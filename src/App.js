@@ -23,7 +23,7 @@ function App() {
     <AmplifyAuthenticator>
       <AmplifySignUp
         slot="sign-up"
-        usernameAlias="email"
+        usernameAlias="preferred_username"
         formFields={[
           {
             type: "email",
