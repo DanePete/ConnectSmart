@@ -4,8 +4,7 @@ import Button from '@material-ui/core/Button';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 import {AmplifySignOut, AmplifyAuthenticator, AmplifySignUp} from '@aws-amplify/ui-react';
-import { DataStore } from '@aws-amplify/datastore';
-import { Software } from './models';
+import AddItem from "./components/add";
 
 Amplify.configure(awsconfig)
 
@@ -41,8 +40,10 @@ function App() {
           <AmplifySignOut />
         </Button>
 
-
-
+        {/* 
+          * Display the Add Item component we created. 
+        */}
+        <AddItem />
         
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
