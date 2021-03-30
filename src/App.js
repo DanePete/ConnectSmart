@@ -1,28 +1,72 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from '@material-ui/core/Button';
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports';
+import {AmplifySignOut, AmplifyAuthenticator, withAuthenticator, AmplifySignUp} from '@aws-amplify/ui-react';
+
+Amplify.configure(awsconfig)
+
+const signUpFields = [
+  {
+    type: "email",
+    label: "custom_label",
+    placeholder: "Custom placeholder",
+    hint: null,
+    required: true,
+  },
+];
+
 
 function App() {
   return (
-    <div className="App">
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AmplifyAuthenticator>
+      <AmplifySignUp
+        slot="sign-up"
+        usernameAlias="email"
+        formFields={[
+          {
+            type: "email",
+            label: "Enter your email",
+            placeholder: "example@example.com",
+            required: true,
+          },
+          {
+            type: "password",
+            label: "Password",
+            placeholder: "don't use a dumb password",
+            required: true,
+          },
+          {
+            type: "preferred_username",
+            label: "Username",
+            placeholder: "Enter something cool, don't want to look like a noob",
+            required: true,
+          },
+        ]} 
+      />
+      <div className="App">
+        <Button variant="contained" color="primary">
+          <AmplifySignOut />
+        </Button>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <AmplifySignOut />
+          <h2>My App Content</h2>
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
+    </AmplifyAuthenticator>
   );
 }
 

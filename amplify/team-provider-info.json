@@ -10,6 +10,11 @@
       "StackName": "amplify-amplify1f402a3d72a74-staging-181224",
       "StackId": "arn:aws:cloudformation:us-east-2:645427258976:stack/amplify-amplify1f402a3d72a74-staging-181224/7aea2280-9183-11eb-a3b8-0695cb65cfc2",
       "AmplifyAppId": "d311b3ehgee7rv"
+    },
+    "categories": {
+      "auth": {
+        "reactkeymanagementrenewal": {}
+      }
     }
   }
 }

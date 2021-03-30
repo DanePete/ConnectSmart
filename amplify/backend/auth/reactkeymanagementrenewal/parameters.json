@@ -1,7 +1,7 @@
 {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "reactk4f64fde0",
+    "resourceNameTruncated": "reactkbecec8a0",
     "userPoolName": "reactkeymanagementrenewal",
     "autoVerifiedAttributes": [
         "phone_number"
@@ -11,31 +11,22 @@
         "SMS Text Message"
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
-    "smsVerificationMessage": "Forgot password code: {####}",
+    "smsVerificationMessage": "Body {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [
-        "Requires Lowercase",
-        "Requires Numbers",
-        "Requires Symbols",
-        "Requires Uppercase"
-    ],
+    "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email",
-        "name",
-        "family_name",
-        "birthdate",
         "preferred_username"
     ],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "reactk4f64fde0_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "reactkbecec8a0_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "4f64fde0",
+    "sharedId": "becec8a0",
     "resourceName": "reactkeymanagementrenewal",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
@@ -51,9 +42,6 @@
         ]
     },
     "serviceName": "Cognito",
-    "usernameAttributes": [
-        "email"
-    ],
     "useDefault": "manual",
     "userPoolGroups": false,
     "userPoolGroupList": [],
