@@ -1,0 +1,4 @@
+type Software @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  Title: String
+}

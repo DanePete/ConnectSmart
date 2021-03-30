@@ -3,11 +3,21 @@ import './App.css';
 import Button from '@material-ui/core/Button';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
-import {AmplifySignOut, AmplifyAuthenticator, withAuthenticator, AmplifySignUp} from '@aws-amplify/ui-react';
+import {AmplifySignOut, AmplifyAuthenticator, AmplifySignUp} from '@aws-amplify/ui-react';
+import { DataStore } from '@aws-amplify/datastore';
+import { Software } from './models';
 
 Amplify.configure(awsconfig)
 
 function App() {
+  
+
+  await DataStore.save(
+    new Software({
+		"Title": "Lorem ipsum dolor sit amet"
+	})
+);
+
   return (
     <AmplifyAuthenticator>
       <AmplifySignUp
@@ -38,6 +48,10 @@ function App() {
         <Button variant="contained" color="primary">
           <AmplifySignOut />
         </Button>
+
+
+
+        
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <AmplifySignOut />
