@@ -1,16 +1,85 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getSoftware = /* GraphQL */ `
-  query GetSoftware($id: ID!) {
-    getSoftware(id: $id) {
+export const getKey = /* GraphQL */ `
+  query GetKey($id: ID!) {
+    getKey(id: $id) {
       id
-      Title
+      key
+      softwareID
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+    }
+  }
+`;
+export const listKeys = /* GraphQL */ `
+  query ListKeys(
+    $filter: ModelKeyFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listKeys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        key
+        softwareID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncKeys = /* GraphQL */ `
+  query SyncKeys(
+    $filter: ModelKeyFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncKeys(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        key
+        softwareID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getSoftware = /* GraphQL */ `
+  query GetSoftware($id: ID!) {
+    getSoftware(id: $id) {
+      id
+      title
+      initial_purchase_date
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Keys {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -23,7 +92,8 @@ export const listSoftwares = /* GraphQL */ `
     listSoftwares(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        Title
+        title
+        initial_purchase_date
         _version
         _deleted
         _lastChangedAt
@@ -50,7 +120,8 @@ export const syncSoftware = /* GraphQL */ `
     ) {
       items {
         id
-        Title
+        title
+        initial_purchase_date
         _version
         _deleted
         _lastChangedAt
