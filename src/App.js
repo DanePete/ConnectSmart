@@ -7,23 +7,12 @@ import {AmplifySignOut, AmplifyAuthenticator, withAuthenticator, AmplifySignUp} 
 
 Amplify.configure(awsconfig)
 
-const signUpFields = [
-  {
-    type: "email",
-    label: "custom_label",
-    placeholder: "Custom placeholder",
-    hint: null,
-    required: true,
-  },
-];
-
-
 function App() {
   return (
     <AmplifyAuthenticator>
       <AmplifySignUp
         slot="sign-up"
-        usernameAlias="preferred_username"
+        usernameAlias="username"
         formFields={[
           {
             type: "email",
