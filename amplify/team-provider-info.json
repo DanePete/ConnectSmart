@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "reactkeymanagementrenewal": {}
+      },
+      "function": {
+        "S3Trigger68c9398d": {
+          "deploymentBucketName": "amplify-amplify1f402a3d72a74-staging-181224-deployment",
+          "s3Key": "amplify-builds/S3Trigger68c9398d-7a515a2f6d645a725532-build.zip"
+        }
       }
     }
   }
