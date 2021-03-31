@@ -11,10 +11,8 @@ const AddItem = () => {
     const data = { title: item };
     try {
       await API.graphql(graphqlOperation(createSoftware, { input: data }));
-      console.log(data);
       console.log("Success!");
     } catch (e) {
-      console.log(data);
       console.log("Error!");
     }
   };
