@@ -8,11 +8,13 @@ const AddItem = () => {
   const [item, setItem] = React.useState();
 
   const save = async () => {
-    const data = { id: item, Title: item };
+    const data = { id: item, title: item };
     try {
       await API.graphql(graphqlOperation(createSoftware, { input: data }));
+      console.log(data);
       console.log("Success!");
     } catch (e) {
+      console.log(data);
       console.log("Error!");
     }
   };
