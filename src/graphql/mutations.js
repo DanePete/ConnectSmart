@@ -1,6 +1,57 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createKey = /* GraphQL */ `
+  mutation CreateKey(
+    $input: CreateKeyInput!
+    $condition: ModelKeyConditionInput
+  ) {
+    createKey(input: $input, condition: $condition) {
+      id
+      key
+      softwareID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateKey = /* GraphQL */ `
+  mutation UpdateKey(
+    $input: UpdateKeyInput!
+    $condition: ModelKeyConditionInput
+  ) {
+    updateKey(input: $input, condition: $condition) {
+      id
+      key
+      softwareID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteKey = /* GraphQL */ `
+  mutation DeleteKey(
+    $input: DeleteKeyInput!
+    $condition: ModelKeyConditionInput
+  ) {
+    deleteKey(input: $input, condition: $condition) {
+      id
+      key
+      softwareID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const createSoftware = /* GraphQL */ `
   mutation CreateSoftware(
     $input: CreateSoftwareInput!
@@ -8,12 +59,17 @@ export const createSoftware = /* GraphQL */ `
   ) {
     createSoftware(input: $input, condition: $condition) {
       id
-      Title
+      title
+      initial_purchase_date
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      Keys {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -24,12 +80,17 @@ export const updateSoftware = /* GraphQL */ `
   ) {
     updateSoftware(input: $input, condition: $condition) {
       id
-      Title
+      title
+      initial_purchase_date
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      Keys {
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -40,12 +101,17 @@ export const deleteSoftware = /* GraphQL */ `
   ) {
     deleteSoftware(input: $input, condition: $condition) {
       id
-      Title
+      title
+      initial_purchase_date
       _version
       _deleted
       _lastChangedAt
       createdAt
       updatedAt
+      Keys {
+        nextToken
+        startedAt
+      }
     }
   }
 `;

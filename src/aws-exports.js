@@ -10,7 +10,9 @@ const awsmobile = {
     "oauth": {},
     "aws_appsync_graphqlEndpoint": "https://4rwgt5l7cvhs5azwlnj2uazsaq.appsync-api.us-east-2.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-2",
-    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS"
+    "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS",
+    "aws_user_files_s3_bucket": "reactkeymanagementred9b22b6600624ae88e4c0d3ee7d181224-staging",
+    "aws_user_files_s3_bucket_region": "us-east-2"
 };
 
 

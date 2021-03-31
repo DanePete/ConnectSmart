@@ -113,7 +113,6 @@ Parameters:
     Type: String
   
             
-            
   useDefault:
     Type: String
   
@@ -129,7 +128,6 @@ Parameters:
   
   adminQueries:
     Type: String
-            
             
   
   thirdPartyAuth:
@@ -229,7 +227,6 @@ Resources:
       
       MfaConfiguration: !Ref mfaConfiguration
       SmsVerificationMessage: !Ref smsVerificationMessage
-      SmsAuthenticationMessage: !Ref smsAuthenticationMessage
       SmsConfiguration:
         SnsCallerArn: !GetAtt SNSRole.Arn
         ExternalId: reactke8672e8d_role_external_id
