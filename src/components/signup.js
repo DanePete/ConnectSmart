@@ -9,11 +9,11 @@ const SignUp = () => {
     <div className = "signIn" >
       <AmplifyAuthenticator usernameAlias = "username" >
         <AmplifySignUp slot = "sign-up"
-          usernameAlias = "password"
+          usernameAlias = "username"
           formFields = {
             [
               {
-                type: "username",
+                type: "preferred_username",
                 label: "Username",
                 placeholder: "",
                 required: true,

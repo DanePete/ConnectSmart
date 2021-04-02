@@ -4,7 +4,6 @@ import { API, graphqlOperation } from "aws-amplify";
 import { createSoftware } from "../graphql/mutations";
 import { Button, Form, } from 'react-bootstrap';
 import Counter from "./counter";
-import fetchData from "../App";
 
 const AddItem = () => {
   const [item, setItem] = React.useState();
@@ -14,7 +13,6 @@ const AddItem = () => {
     try {
       await API.graphql(graphqlOperation(createSoftware, { input: data }));
       console.log("Success!");
-      fetchData();
     } catch (e) {
       console.log("Error!");
     }

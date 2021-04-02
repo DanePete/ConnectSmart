@@ -28,16 +28,13 @@ function App() {
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData);
-      // fetchData();
     });
   }, []);
 
   const fetchData = async () => {
     try {
       const data = await API.graphql(graphqlOperation(listSoftwares));
-      console.log(data);
       const dataList = data.data.listSoftwares.items;
-      console.log('list', dataList);
       setData(dataList)
     } catch(error) {
       console.log('STICK YOUR HEAD IN DOO DOO');
@@ -48,6 +45,7 @@ function App() {
     <Router>
       <div className="App">
         <NavBar />  
+        <AddItem/>
         <Switch>
           <Route exact path="/">
           </Route>
@@ -55,7 +53,7 @@ function App() {
             <Create />
           </Route>
         </Switch>
-        <AddItem />
+        
         <Button onClick={() => fetchData()}>rwar</Button>
         <div className="dataList">
           {data.map(data => {
