@@ -10,6 +10,7 @@ import NavBar from "./components/navbar";
 import {listSoftwares} from './graphql/queries';
 import {Paper} from '@material-ui/core';
 import { Button } from 'react-bootstrap'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 
 
 Amplify.configure(awsconfig)
