@@ -20,8 +20,6 @@ const AddItem = () => {
     }
   };
 
-  console.log('changed repo name ugh oh.. AMP is not happy test two');
-
   return (
     <div>
       <h1>Add Software</h1>
