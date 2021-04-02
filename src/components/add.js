@@ -20,7 +20,7 @@ const AddItem = () => {
     }
   };
 
-  console.log('testing pull request preview in amplify');
+  console.log('testing pull request pull in amplify');
 
   return (
     <div>
