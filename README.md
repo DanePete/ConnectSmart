@@ -1,3 +1,5 @@
+#ConnectSmart
+
 Fullish stack project to learn React and improve my Javascript abilities, AWS Amplify [CLI, cognito, AppSync, DynamnoDB, Lambda, graphAL, S3]
 
 **DEVELOP URL: https://main.d311b3ehgee7rv.amplifyapp.com/
