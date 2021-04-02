@@ -1,3 +1,19 @@
+type TimeEntry @model @auth(rules: [{allow: private}]) @key(name: "byTicket", fields: ["ticketID"]) {
+  id: ID!
+  ticketID: ID
+}
+
+type Project @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  Tickets: [Ticket] @connection(keyName: "byProject", fields: ["id"])
+}
+
+type Ticket @model @auth(rules: [{allow: private}]) @key(name: "byProject", fields: ["projectID"]) {
+  id: ID!
+  projectID: ID
+  TimeEntries: [TimeEntry] @connection(keyName: "byTicket", fields: ["id"])
+}
+
 type Contact @model @auth(rules: [{allow: private}]) @key(name: "byCustomer", fields: ["customerID"]) {
   id: ID!
   first_name: String

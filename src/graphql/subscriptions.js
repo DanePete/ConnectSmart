@@ -1,6 +1,144 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateTimeEntry = /* GraphQL */ `
+  subscription OnCreateTimeEntry {
+    onCreateTimeEntry {
+      id
+      ticketID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateTimeEntry = /* GraphQL */ `
+  subscription OnUpdateTimeEntry {
+    onUpdateTimeEntry {
+      id
+      ticketID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteTimeEntry = /* GraphQL */ `
+  subscription OnDeleteTimeEntry {
+    onDeleteTimeEntry {
+      id
+      ticketID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateProject = /* GraphQL */ `
+  subscription OnCreateProject {
+    onCreateProject {
+      id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Tickets {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onUpdateProject = /* GraphQL */ `
+  subscription OnUpdateProject {
+    onUpdateProject {
+      id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Tickets {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onDeleteProject = /* GraphQL */ `
+  subscription OnDeleteProject {
+    onDeleteProject {
+      id
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Tickets {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onCreateTicket = /* GraphQL */ `
+  subscription OnCreateTicket {
+    onCreateTicket {
+      id
+      projectID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      TimeEntries {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onUpdateTicket = /* GraphQL */ `
+  subscription OnUpdateTicket {
+    onUpdateTicket {
+      id
+      projectID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      TimeEntries {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
+export const onDeleteTicket = /* GraphQL */ `
+  subscription OnDeleteTicket {
+    onDeleteTicket {
+      id
+      projectID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      TimeEntries {
+        nextToken
+        startedAt
+      }
+    }
+  }
+`;
 export const onCreateContact = /* GraphQL */ `
   subscription OnCreateContact {
     onCreateContact {
