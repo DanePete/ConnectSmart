@@ -8,57 +8,56 @@ const SignUp = () => {
   return ( 
     <div className = "signIn" >
       <AmplifyAuthenticator usernameAlias = "username" >
-
-      <AmplifySignUp slot = "sign-up"
-      usernameAlias = "email"
-      formFields = {
-        [{
-            type: "email",
-            label: "Custom email Label",
-            placeholder: "custom email placeholder",
-            required: true,
-          },
-          {
-            type: "password",
-            label: "Custom Password Label",
-            placeholder: "custom password placeholder",
-            required: true,
-          },
-          {
-            type: "preferred_username",
-            label: "Custom user Label",
-            placeholder: "custom Phone placeholder",
-            required: false,
-          },
-          {
-            type: "phone_number",
-            label: "Custom phone Label",
-            placeholder: "custom Phone placeholder",
-            required: false,
-          },
-          {
-            type: "name",
-            label: "Custom name Label",
-            placeholder: "custom Phone placeholder",
-            required: false,
-          },
-          {
-            type: "picture",
-            label: "Custom picture Label",
-            placeholder: "custom Phone placeholder",
-            required: false,
-          },
-          {
-            type: "family_name",
-            label: "Custom family name Label",
-            placeholder: "custom Phone placeholder",
-            required: false,
-          },
-        ]
-      }
-      /> 
-      <AmplifySignIn slot = "sign-in"
-      usernameAlias = "username" / >
+        <AmplifySignUp slot = "sign-up"
+          usernameAlias = "password"
+          formFields = {
+            [
+              {
+                type: "username",
+                label: "Username",
+                placeholder: "",
+                required: true,
+              },
+              {
+                type: "email",
+                label: "Email Address",
+                placeholder: "example@example.com",
+                required: true,
+              },
+              {
+                type: "password",
+                label: "Password",
+                placeholder: "",
+                required: true,
+              },
+              // {
+              //   type: "phone_number",
+              //   label: "Custom phone Label",
+              //   placeholder: "custom Phone placeholder",
+              //   required: false,
+              // },
+              {
+                type: "name",
+                label: "First Name",
+                placeholder: "",
+                required: false,
+              },
+              // {
+              //   type: "picture",
+              //   label: "Custom picture Label",
+              //   placeholder: "custom Phone placeholder",
+              //   required: false,
+              // },
+              {
+                type: "family_name",
+                label: "Last Name",
+                placeholder: "",
+                required: false,
+              },
+            ]
+          }
+        /> 
+        <AmplifySignIn slot = "sign-in" usernameAlias = "username" / >
       </AmplifyAuthenticator>        
     </div>
   );
