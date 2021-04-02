@@ -4,6 +4,30 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+export declare class Contact {
+  readonly id: string;
+  readonly first_name?: string;
+  readonly last_name?: string;
+  readonly is_active?: boolean;
+  readonly primary_phone?: string;
+  readonly secondary_phone?: string;
+  readonly email?: string;
+  readonly customerID?: string;
+  constructor(init: ModelInit<Contact>);
+  static copyOf(source: Contact, mutator: (draft: MutableModel<Contact>) => MutableModel<Contact> | void): Contact;
+}
+
+export declare class Customer {
+  readonly id: string;
+  readonly name?: string;
+  readonly is_active?: boolean;
+  readonly customer_phone?: string;
+  readonly customer_url?: string;
+  readonly Contacts?: (Contact | null)[];
+  constructor(init: ModelInit<Customer>);
+  static copyOf(source: Customer, mutator: (draft: MutableModel<Customer>) => MutableModel<Customer> | void): Customer;
+}
+
 export declare class Key {
   readonly id: string;
   readonly key?: string;
