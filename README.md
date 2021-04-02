@@ -1,4 +1,4 @@
-#ConnectSmart
+# ConnectSmart
 
 Fullish stack project to learn React and improve my Javascript abilities, AWS Amplify [CLI, cognito, AppSync, DynamnoDB, Lambda, graphAL, S3]
 
