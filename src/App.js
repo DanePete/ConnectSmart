@@ -11,7 +11,8 @@ import {listSoftwares} from './graphql/queries';
 import {Paper} from '@material-ui/core';
 import { Button } from 'react-bootstrap'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
-import Create from "./Create";
+import Create from "./components/create";
+import SignUp from "./components/signup";
 
 
 Amplify.configure(awsconfig)
@@ -73,61 +74,7 @@ function App() {
     </Router>
   )  : (
     <div className="container">
-      <div className="signIn">
-        {/* <AmplifyAuthenticator /> */}
-
-      <AmplifyAuthenticator usernameAlias="username">
-      <AmplifySignUp
-        slot="sign-up"
-        usernameAlias="email"
-        formFields={[
-          {
-            type: "email",
-            label: "Custom email Label",
-            placeholder: "custom email placeholder",
-            required: true,
-          },
-          {
-            type: "password",
-            label: "Custom Password Label",
-            placeholder: "custom password placeholder",
-            required: true,
-          },
-          {
-            type: "preferred_username",
-            label: "Custom user Label",
-            placeholder: "custom Phone placeholder",
-            required: false,
-          },
-          {
-            type: "phone_number",
-            label: "Custom phone Label",
-            placeholder: "custom Phone placeholder",
-            required: false,
-          },               
-          {
-          type: "name",
-          label: "Custom name Label",
-          placeholder: "custom Phone placeholder",
-          required: false,
-          },     
-          {
-          type: "picture",
-          label: "Custom picture Label",
-          placeholder: "custom Phone placeholder",
-          required: false,
-          },     
-          {  
-          type: "family_name",
-          label: "Custom family name Label",
-          placeholder: "custom Phone placeholder",
-          required: false,
-          },     
-        ]} 
-      />
-      <AmplifySignIn slot="sign-in" usernameAlias="email" />
-    </AmplifyAuthenticator>       
-      </div>
+      <SignUp />
     </div>
   );
 
