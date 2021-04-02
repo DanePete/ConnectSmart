@@ -20,7 +20,7 @@ const AddItem = () => {
     }
   };
 
-  console.log('testing pull request pull in amplify');
+  console.log('changed repo name');
 
   return (
     <div>
