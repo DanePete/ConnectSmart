@@ -1,15 +1,18 @@
 # ConnectSmart
 
-Fullish stack project to learn React and improve my Javascript abilities, AWS Amplify [CLI, cognito, AppSync, DynamnoDB, Lambda, graphAL, S3]
+Fullish stack project to learn React and improve my Javascript abilities, AWS Amplify [CLI, Cognito, AppSync, DynamnoDB, Lambda, graphAL, S3]
 
 **DEVELOP URL: https://main.d311b3ehgee7rv.amplifyapp.com/
 
-What is the skinny of this project. Simple App that allows users to track serial #/ keys for software, what hardware it is installed on, who owns the hardware.
+**Compnents**
+- [ ] Customer
+- [ ] Contact
+- [ ] Project
+- [ ] Ticket
+- [ ] Time Entry
+- [ ] User
 
-- Add users
--- Add Hardware (PC etc)
---- Assign software
----- track software keys
+
 
 Technology
 
