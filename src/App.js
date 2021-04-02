@@ -11,9 +11,11 @@ import {listSoftwares} from './graphql/queries';
 import {Paper} from '@material-ui/core';
 import { Button } from 'react-bootstrap'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
+import Create from "./Create";
 
 
 Amplify.configure(awsconfig)
+
 
 function App() {
 
@@ -42,24 +44,33 @@ function App() {
   }
 
   return authState === AuthState.SignedIn && user ? (
-    <div className="App">
-      <NavBar />
-      <AddItem />
-      <Button onClick={() => fetchData()}>rwar</Button>
-      <div className="dataList">
-        {data.map(data => {
-          return (
-            <Paper varient="outlined" elevation={2}>
-              <div className="dataCard">
-                <div>
-                  <div className="DataName">{data.title}</div>
+    <Router>
+      <div className="App">
+        <NavBar />  
+        <Switch>
+          <Route exact path="/">
+          </Route>
+          <Route path="/create">
+            <Create />
+          </Route>
+        </Switch>
+        <AddItem />
+        <Button onClick={() => fetchData()}>rwar</Button>
+        <div className="dataList">
+          {data.map(data => {
+            return (
+              <Paper varient="outlined" elevation={2}>
+                <div className="dataCard">
+                  <div>
+                    <div className="DataName">{data.title}</div>
+                  </div>
                 </div>
-              </div>
-            </Paper>
-          )
-        })}
+              </Paper>
+            )
+          })}
+        </div>
       </div>
-    </div>
+    </Router>
   )  : (
     <div className="container">
       <div className="signIn">

@@ -2,6 +2,7 @@
 import React from "react";
 import {AmplifySignOut} from '@aws-amplify/ui-react';
 import { Button, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap'
+import { Link } from 'react-router-dom'; 
 
 const NavBar = () => {
   return (
@@ -14,7 +15,7 @@ const NavBar = () => {
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Create</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />

@@ -21,7 +21,7 @@ body {
 }
 
 :root {
-  --amplify-background-color: rgb(112, 110, 223);
+  /* --amplify-background-color: rgb(112, 110, 223); */
 }
 
 amplify-authenticator {
