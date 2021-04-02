@@ -1,8 +1,10 @@
 
-import React from "react";
+import React, { Component } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { createSoftware } from "../graphql/mutations";
-
+import { Button, Form, } from 'react-bootstrap';
+import Counter from "./counter";
+import fetchData from "../App";
 
 const AddItem = () => {
   const [item, setItem] = React.useState();
@@ -12,6 +14,7 @@ const AddItem = () => {
     try {
       await API.graphql(graphqlOperation(createSoftware, { input: data }));
       console.log("Success!");
+      fetchData();
     } catch (e) {
       console.log("Error!");
     }
@@ -20,8 +23,14 @@ const AddItem = () => {
   return (
     <div>
       <h1>Add Software</h1>
-      <input onChange={e => setItem(e.target.value)}></input>
-      <button onClick={() => save()}>SAVE</button>
+      <Counter />
+      <Form>
+        <Form.Group controlId="exampleForm.ControlInput1">
+          <Form.Label>Add Software</Form.Label>
+          <Form.Control type="text" placeholder="Software Title" onChange={e => setItem(e.target.value)}/>
+          <Button type="submit" onClick={() => save()}>Submit</Button>
+        </Form.Group>
+      </Form>
     </div>
   );
 };

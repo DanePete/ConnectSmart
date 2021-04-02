@@ -1,7 +1,7 @@
 {
     "identityPoolName": "testAuthIdentityPool",
-    "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "reactke8672e8d",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "reactk35bc1a04",
     "userPoolName": "reactkeymanagementrenewal",
     "autoVerifiedAttributes": [
         "email"
@@ -12,8 +12,8 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Forgot password code: {####}",
-    "emailVerificationMessage": "Forgot password code: {####}",
+    "emailVerificationSubject": "Your Super Cool Auth Code Is {####}",
+    "emailVerificationMessage": "Be cool and use this auth code {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [
@@ -30,9 +30,9 @@
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "reactke8672e8d_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "reactk35bc1a04_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "e8672e8d",
+    "sharedId": "35bc1a04",
     "resourceName": "reactkeymanagementrenewal",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {

@@ -1,5 +1,31 @@
 .App {
   text-align: center;
+  height: 100vh;
+}
+
+#root {
+  background: #292828;
+  color: white;
+}
+
+body {
+  background: blue;
+}
+
+.amplify-authenticator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+}
+
+:root {
+  --amplify-background-color: rgb(112, 110, 223);
+}
+
+amplify-authenticator {
+  --background-color: lightblue;
 }
 
 .App-logo {
