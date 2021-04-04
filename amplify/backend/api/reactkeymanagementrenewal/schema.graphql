@@ -40,7 +40,7 @@ type Key @model @key(name: "bySoftware", fields: ["softwareID"]) @auth(rules: [{
   softwareID: ID
 }
 
-type Software @model @auth(rules: [{allow: owner, ownerField: "owner"}]) {
+type Software @model @auth(rules: [{allow: owner, ownerField: "owner"}, { allow: groups, groups: ["Admin"] }]) {
   id: ID!
   title: String
   initial_purchase_date: AWSDateTime
