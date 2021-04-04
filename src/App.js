@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./components/navbar";
 import {listSoftwares} from './graphql/queries';
 import {Paper} from '@material-ui/core';
-import { Button } from 'react-bootstrap'
+import { Button, Table } from 'react-bootstrap'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 import Create from "./components/create";
 import SignUp from "./components/signup";
@@ -38,7 +38,6 @@ function App() {
     try {
       const data = await API.graphql(graphqlOperation(listSoftwares));
       const dataList = data.data.listSoftwares.items;
-      console.log(data)
       setData(dataList);
       toast.success("Retrieved Data Successfully");
     } catch(error) {
@@ -60,20 +59,22 @@ function App() {
           </Route>
         </Switch>
         <Button onClick={() => fetchData()}>rwar</Button>
-        <div className="dataList">
+        <Table striped bordered hover variant="dark" responsive>
+          <thead>
+            <th>Title</th>
+            <th>Owner</th>
+          </thead>
+          <tbody>
           {data.map(data => {
             return (
-              <Paper varient="outlined" elevation={2}>
-                <div className="dataCard">
-                  <div>
-                    <div className="DataName">{data.title}</div>
-                    <div className="DataOwner">{data.owner}</div>
-                  </div>
-                </div>
-              </Paper>
+              <tr>
+                <td>{data.title}</td>
+                <td>{data.owner}</td>
+              </tr>
             )
           })}
-        </div>
+          </tbody>
+        </Table>
       </div>
     </Router>
   )  : (
