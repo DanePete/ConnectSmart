@@ -421,6 +421,7 @@ export const getSoftware = /* GraphQL */ `
         nextToken
         startedAt
       }
+      owner
     }
   }
 `;
@@ -440,6 +441,7 @@ export const listSoftwares = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
+        owner
       }
       nextToken
       startedAt
@@ -468,6 +470,7 @@ export const syncSoftware = /* GraphQL */ `
         _lastChangedAt
         createdAt
         updatedAt
+        owner
       }
       nextToken
       startedAt

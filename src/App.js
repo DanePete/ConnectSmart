@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './App.css';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import {AmplifyAuthenticator, AmplifySignIn, AmplifySignUp} from '@aws-amplify/ui-react';
 import AddItem from "./components/add";
@@ -32,17 +32,22 @@ function App() {
       setUser(authData);
     });
   }, []);
+  
 
   const fetchData = async () => {
     try {
       const data = await API.graphql(graphqlOperation(listSoftwares));
       const dataList = data.data.listSoftwares.items;
+      console.log(data)
       setData(dataList);
       toast.success("Retrieved Data Successfully");
     } catch(error) {
       toast.error('Error in retrieving Data')
     }
   }
+
+  console.log(user);
+  // console.log(user);
 
   return authState === AuthState.SignedIn && user ? (
     <Router>

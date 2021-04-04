@@ -299,8 +299,8 @@ export const onDeleteKey = /* GraphQL */ `
   }
 `;
 export const onCreateSoftware = /* GraphQL */ `
-  subscription OnCreateSoftware {
-    onCreateSoftware {
+  subscription OnCreateSoftware($owner: String) {
+    onCreateSoftware(owner: $owner) {
       id
       title
       initial_purchase_date
@@ -313,12 +313,13 @@ export const onCreateSoftware = /* GraphQL */ `
         nextToken
         startedAt
       }
+      owner
     }
   }
 `;
 export const onUpdateSoftware = /* GraphQL */ `
-  subscription OnUpdateSoftware {
-    onUpdateSoftware {
+  subscription OnUpdateSoftware($owner: String) {
+    onUpdateSoftware(owner: $owner) {
       id
       title
       initial_purchase_date
@@ -331,12 +332,13 @@ export const onUpdateSoftware = /* GraphQL */ `
         nextToken
         startedAt
       }
+      owner
     }
   }
 `;
 export const onDeleteSoftware = /* GraphQL */ `
-  subscription OnDeleteSoftware {
-    onDeleteSoftware {
+  subscription OnDeleteSoftware($owner: String) {
+    onDeleteSoftware(owner: $owner) {
       id
       title
       initial_purchase_date
@@ -349,6 +351,7 @@ export const onDeleteSoftware = /* GraphQL */ `
         nextToken
         startedAt
       }
+      owner
     }
   }
 `;

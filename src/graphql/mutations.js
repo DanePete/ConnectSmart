@@ -370,6 +370,7 @@ export const createSoftware = /* GraphQL */ `
         nextToken
         startedAt
       }
+      owner
     }
   }
 `;
@@ -391,6 +392,7 @@ export const updateSoftware = /* GraphQL */ `
         nextToken
         startedAt
       }
+      owner
     }
   }
 `;
@@ -412,6 +414,7 @@ export const deleteSoftware = /* GraphQL */ `
         nextToken
         startedAt
       }
+      owner
     }
   }
 `;

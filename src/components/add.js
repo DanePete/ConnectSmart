@@ -9,7 +9,7 @@ const AddItem = () => {
   const [item, setItem] = React.useState();
 
   const save = async () => {
-    const data = { title: item };
+    const data = { title: item};
     try {
       await API.graphql(graphqlOperation(createSoftware, { input: data }));
       console.log("Success!");
@@ -21,7 +21,6 @@ const AddItem = () => {
   return (
     <div>
       <h1>Add Software</h1>
-      <Counter />
       <Form>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>Add Software</Form.Label>
