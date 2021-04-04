@@ -13,6 +13,8 @@ import { Button } from 'react-bootstrap'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 import Create from "./components/create";
 import SignUp from "./components/signup";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 Amplify.configure(awsconfig)
@@ -35,15 +37,17 @@ function App() {
     try {
       const data = await API.graphql(graphqlOperation(listSoftwares));
       const dataList = data.data.listSoftwares.items;
-      setData(dataList)
+      setData(dataList);
+      toast.success("Retrieved Data Successfully");
     } catch(error) {
-      console.log('STICK YOUR HEAD IN DOO DOO');
+      toast.error('Error in retrieving Data')
     }
   }
 
   return authState === AuthState.SignedIn && user ? (
     <Router>
       <div className="App">
+        <ToastContainer />
         <NavBar />  
         <AddItem/>
         <Switch>
@@ -53,7 +57,6 @@ function App() {
             <Create />
           </Route>
         </Switch>
-        
         <Button onClick={() => fetchData()}>rwar</Button>
         <div className="dataList">
           {data.map(data => {
