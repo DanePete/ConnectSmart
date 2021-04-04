@@ -46,9 +46,6 @@ function App() {
     }
   }
 
-  console.log(user);
-  // console.log(user);
-
   return authState === AuthState.SignedIn && user ? (
     <Router>
       <div className="App">
@@ -70,6 +67,7 @@ function App() {
                 <div className="dataCard">
                   <div>
                     <div className="DataName">{data.title}</div>
+                    <div className="DataOwner">{data.owner}</div>
                   </div>
                 </div>
               </Paper>

@@ -3,18 +3,20 @@ import React, { Component } from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { createSoftware } from "../graphql/mutations";
 import { Button, Form, } from 'react-bootstrap';
-import Counter from "./counter";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const AddItem = () => {
+  const AddItem = () => {
   const [item, setItem] = React.useState();
 
   const save = async () => {
     const data = { title: item};
+    console.log(data);
     try {
       await API.graphql(graphqlOperation(createSoftware, { input: data }));
-      console.log("Success!");
+      toast.success("Success");
     } catch (e) {
-      console.log("Error!");
+      toast.error('Error')
     }
   };
 
@@ -25,7 +27,7 @@ const AddItem = () => {
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>Add Software</Form.Label>
           <Form.Control type="text" placeholder="Software Title" onChange={e => setItem(e.target.value)}/>
-          <Button type="submit" onClick={() => save()}>Submit</Button>
+          <Button onClick={() => save()}>Submit</Button>
         </Form.Group>
       </Form>
     </div>
