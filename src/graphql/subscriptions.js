@@ -6,9 +6,6 @@ export const onCreateTimeEntry = /* GraphQL */ `
     onCreateTimeEntry {
       id
       ticketID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -19,9 +16,6 @@ export const onUpdateTimeEntry = /* GraphQL */ `
     onUpdateTimeEntry {
       id
       ticketID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -32,9 +26,6 @@ export const onDeleteTimeEntry = /* GraphQL */ `
     onDeleteTimeEntry {
       id
       ticketID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -44,14 +35,10 @@ export const onCreateProject = /* GraphQL */ `
   subscription OnCreateProject {
     onCreateProject {
       id
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Tickets {
         nextToken
-        startedAt
       }
     }
   }
@@ -60,14 +47,10 @@ export const onUpdateProject = /* GraphQL */ `
   subscription OnUpdateProject {
     onUpdateProject {
       id
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Tickets {
         nextToken
-        startedAt
       }
     }
   }
@@ -76,14 +59,10 @@ export const onDeleteProject = /* GraphQL */ `
   subscription OnDeleteProject {
     onDeleteProject {
       id
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Tickets {
         nextToken
-        startedAt
       }
     }
   }
@@ -93,14 +72,10 @@ export const onCreateTicket = /* GraphQL */ `
     onCreateTicket {
       id
       projectID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       TimeEntries {
         nextToken
-        startedAt
       }
     }
   }
@@ -110,14 +85,10 @@ export const onUpdateTicket = /* GraphQL */ `
     onUpdateTicket {
       id
       projectID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       TimeEntries {
         nextToken
-        startedAt
       }
     }
   }
@@ -127,14 +98,10 @@ export const onDeleteTicket = /* GraphQL */ `
     onDeleteTicket {
       id
       projectID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       TimeEntries {
         nextToken
-        startedAt
       }
     }
   }
@@ -150,9 +117,6 @@ export const onCreateContact = /* GraphQL */ `
       secondary_phone
       email
       customerID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -169,9 +133,6 @@ export const onUpdateContact = /* GraphQL */ `
       secondary_phone
       email
       customerID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -188,9 +149,6 @@ export const onDeleteContact = /* GraphQL */ `
       secondary_phone
       email
       customerID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -204,14 +162,10 @@ export const onCreateCustomer = /* GraphQL */ `
       is_active
       customer_phone
       customer_url
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Contacts {
         nextToken
-        startedAt
       }
     }
   }
@@ -224,14 +178,10 @@ export const onUpdateCustomer = /* GraphQL */ `
       is_active
       customer_phone
       customer_url
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Contacts {
         nextToken
-        startedAt
       }
     }
   }
@@ -244,14 +194,10 @@ export const onDeleteCustomer = /* GraphQL */ `
       is_active
       customer_phone
       customer_url
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Contacts {
         nextToken
-        startedAt
       }
     }
   }
@@ -262,9 +208,6 @@ export const onCreateKey = /* GraphQL */ `
       id
       key
       softwareID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -276,9 +219,6 @@ export const onUpdateKey = /* GraphQL */ `
       id
       key
       softwareID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -290,9 +230,6 @@ export const onDeleteKey = /* GraphQL */ `
       id
       key
       softwareID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -304,14 +241,10 @@ export const onCreateSoftware = /* GraphQL */ `
       id
       title
       initial_purchase_date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Keys {
         nextToken
-        startedAt
       }
       owner
     }
@@ -323,14 +256,10 @@ export const onUpdateSoftware = /* GraphQL */ `
       id
       title
       initial_purchase_date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Keys {
         nextToken
-        startedAt
       }
       owner
     }
@@ -342,14 +271,10 @@ export const onDeleteSoftware = /* GraphQL */ `
       id
       title
       initial_purchase_date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Keys {
         nextToken
-        startedAt
       }
       owner
     }

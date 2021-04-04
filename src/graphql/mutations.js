@@ -9,9 +9,6 @@ export const createTimeEntry = /* GraphQL */ `
     createTimeEntry(input: $input, condition: $condition) {
       id
       ticketID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -25,9 +22,6 @@ export const updateTimeEntry = /* GraphQL */ `
     updateTimeEntry(input: $input, condition: $condition) {
       id
       ticketID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -41,9 +35,6 @@ export const deleteTimeEntry = /* GraphQL */ `
     deleteTimeEntry(input: $input, condition: $condition) {
       id
       ticketID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -56,14 +47,10 @@ export const createProject = /* GraphQL */ `
   ) {
     createProject(input: $input, condition: $condition) {
       id
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Tickets {
         nextToken
-        startedAt
       }
     }
   }
@@ -75,14 +62,10 @@ export const updateProject = /* GraphQL */ `
   ) {
     updateProject(input: $input, condition: $condition) {
       id
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Tickets {
         nextToken
-        startedAt
       }
     }
   }
@@ -94,14 +77,10 @@ export const deleteProject = /* GraphQL */ `
   ) {
     deleteProject(input: $input, condition: $condition) {
       id
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Tickets {
         nextToken
-        startedAt
       }
     }
   }
@@ -114,14 +93,10 @@ export const createTicket = /* GraphQL */ `
     createTicket(input: $input, condition: $condition) {
       id
       projectID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       TimeEntries {
         nextToken
-        startedAt
       }
     }
   }
@@ -134,14 +109,10 @@ export const updateTicket = /* GraphQL */ `
     updateTicket(input: $input, condition: $condition) {
       id
       projectID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       TimeEntries {
         nextToken
-        startedAt
       }
     }
   }
@@ -154,14 +125,10 @@ export const deleteTicket = /* GraphQL */ `
     deleteTicket(input: $input, condition: $condition) {
       id
       projectID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       TimeEntries {
         nextToken
-        startedAt
       }
     }
   }
@@ -180,9 +147,6 @@ export const createContact = /* GraphQL */ `
       secondary_phone
       email
       customerID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -202,9 +166,6 @@ export const updateContact = /* GraphQL */ `
       secondary_phone
       email
       customerID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -224,9 +185,6 @@ export const deleteContact = /* GraphQL */ `
       secondary_phone
       email
       customerID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -243,14 +201,10 @@ export const createCustomer = /* GraphQL */ `
       is_active
       customer_phone
       customer_url
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Contacts {
         nextToken
-        startedAt
       }
     }
   }
@@ -266,14 +220,10 @@ export const updateCustomer = /* GraphQL */ `
       is_active
       customer_phone
       customer_url
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Contacts {
         nextToken
-        startedAt
       }
     }
   }
@@ -289,14 +239,10 @@ export const deleteCustomer = /* GraphQL */ `
       is_active
       customer_phone
       customer_url
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Contacts {
         nextToken
-        startedAt
       }
     }
   }
@@ -310,9 +256,6 @@ export const createKey = /* GraphQL */ `
       id
       key
       softwareID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -327,9 +270,6 @@ export const updateKey = /* GraphQL */ `
       id
       key
       softwareID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -344,9 +284,6 @@ export const deleteKey = /* GraphQL */ `
       id
       key
       softwareID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -361,14 +298,10 @@ export const createSoftware = /* GraphQL */ `
       id
       title
       initial_purchase_date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Keys {
         nextToken
-        startedAt
       }
       owner
     }
@@ -383,14 +316,10 @@ export const updateSoftware = /* GraphQL */ `
       id
       title
       initial_purchase_date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Keys {
         nextToken
-        startedAt
       }
       owner
     }
@@ -405,14 +334,10 @@ export const deleteSoftware = /* GraphQL */ `
       id
       title
       initial_purchase_date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Keys {
         nextToken
-        startedAt
       }
       owner
     }

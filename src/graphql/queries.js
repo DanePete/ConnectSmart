@@ -6,9 +6,6 @@ export const getTimeEntry = /* GraphQL */ `
     getTimeEntry(id: $id) {
       id
       ticketID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -24,41 +21,10 @@ export const listTimeEntrys = /* GraphQL */ `
       items {
         id
         ticketID
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncTimeEntries = /* GraphQL */ `
-  query SyncTimeEntries(
-    $filter: ModelTimeEntryFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncTimeEntries(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        ticketID
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -66,14 +32,10 @@ export const getProject = /* GraphQL */ `
   query GetProject($id: ID!) {
     getProject(id: $id) {
       id
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Tickets {
         nextToken
-        startedAt
       }
     }
   }
@@ -87,40 +49,10 @@ export const listProjects = /* GraphQL */ `
     listProjects(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncProjects = /* GraphQL */ `
-  query SyncProjects(
-    $filter: ModelProjectFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncProjects(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -129,14 +61,10 @@ export const getTicket = /* GraphQL */ `
     getTicket(id: $id) {
       id
       projectID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       TimeEntries {
         nextToken
-        startedAt
       }
     }
   }
@@ -151,41 +79,10 @@ export const listTickets = /* GraphQL */ `
       items {
         id
         projectID
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncTickets = /* GraphQL */ `
-  query SyncTickets(
-    $filter: ModelTicketFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncTickets(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        projectID
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -200,9 +97,6 @@ export const getContact = /* GraphQL */ `
       secondary_phone
       email
       customerID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -224,47 +118,10 @@ export const listContacts = /* GraphQL */ `
         secondary_phone
         email
         customerID
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncContacts = /* GraphQL */ `
-  query SyncContacts(
-    $filter: ModelContactFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncContacts(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        first_name
-        last_name
-        is_active
-        primary_phone
-        secondary_phone
-        email
-        customerID
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -276,14 +133,10 @@ export const getCustomer = /* GraphQL */ `
       is_active
       customer_phone
       customer_url
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Contacts {
         nextToken
-        startedAt
       }
     }
   }
@@ -301,44 +154,10 @@ export const listCustomers = /* GraphQL */ `
         is_active
         customer_phone
         customer_url
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncCustomers = /* GraphQL */ `
-  query SyncCustomers(
-    $filter: ModelCustomerFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncCustomers(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        name
-        is_active
-        customer_phone
-        customer_url
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -348,9 +167,6 @@ export const getKey = /* GraphQL */ `
       id
       key
       softwareID
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -367,42 +183,10 @@ export const listKeys = /* GraphQL */ `
         id
         key
         softwareID
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncKeys = /* GraphQL */ `
-  query SyncKeys(
-    $filter: ModelKeyFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncKeys(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        key
-        softwareID
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
     }
   }
 `;
@@ -412,14 +196,10 @@ export const getSoftware = /* GraphQL */ `
       id
       title
       initial_purchase_date
-      _version
-      _deleted
-      _lastChangedAt
       createdAt
       updatedAt
       Keys {
         nextToken
-        startedAt
       }
       owner
     }
@@ -436,44 +216,11 @@ export const listSoftwares = /* GraphQL */ `
         id
         title
         initial_purchase_date
-        _version
-        _deleted
-        _lastChangedAt
         createdAt
         updatedAt
         owner
       }
       nextToken
-      startedAt
-    }
-  }
-`;
-export const syncSoftware = /* GraphQL */ `
-  query SyncSoftware(
-    $filter: ModelSoftwareFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncSoftware(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        title
-        initial_purchase_date
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-        owner
-      }
-      nextToken
-      startedAt
     }
   }
 `;
