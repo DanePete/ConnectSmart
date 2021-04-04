@@ -63,6 +63,7 @@ function App() {
           <thead>
             <th>Title</th>
             <th>Owner</th>
+            <th colSpan="2"></th>
           </thead>
           <tbody>
           {data.map(data => {
@@ -70,6 +71,8 @@ function App() {
               <tr>
                 <td>{data.title}</td>
                 <td>{data.owner}</td>
+                <td><Button variant="info">Edit</Button></td>
+                <td><Button variant="danger">Delete</Button></td>
               </tr>
             )
           })}
