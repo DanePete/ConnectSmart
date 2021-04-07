@@ -14,7 +14,7 @@ const List = ({data}) => {
             <th colSpan="2"></th>
           </thead>
           <tbody>
-          {data.map(data => {
+          {data.sort((a, b) => a.title > b.title ? 1 : -1).map(data => {
             return (
               <tr>
                 <td>{data.title}</td>
