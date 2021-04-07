@@ -2,8 +2,7 @@
 import React from "react";
 import { Button, Table} from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
-
-const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+import Moment from 'react-moment';
 
 const List = ({data}) => {
     return (
@@ -21,7 +20,7 @@ const List = ({data}) => {
                 <td>{data.title}</td>
                 <td>{data.owner}</td>
                 <td><Button variant="info">Edit</Button></td>
-                <td>{data.updatedAt}</td>
+                <td><Moment format="MM/DD/YYYY, hh:mm A">{data.updatedAt}</Moment></td>
                 {/* <td><Button onClick={() => deleteItem(data.id)}>Delete!</Button></td> */}
               </tr>
             )
