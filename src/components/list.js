@@ -3,6 +3,8 @@ import React from "react";
 import { Button, Table} from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
 
+const DATE_OPTIONS = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
 const List = ({data}) => {
     return (
         <div>
