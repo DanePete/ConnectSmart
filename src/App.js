@@ -51,7 +51,7 @@ function App() {
     } catch(error) {
       toast.error('Error in retrieving Data')
     }
-  }
+  } 
 
   return authState === AuthState.SignedIn && user ? (
     <Router>
