@@ -20,7 +20,7 @@ const List = ({data}) => {
                 <td>{data.title}</td>
                 <td>{data.owner}</td>
                 <td><Button variant="info">Edit</Button></td>
-                <td><Moment format="MM/DD/YYYY">{data.updatedAt}</Moment></td>
+                <td><Moment format="MM/DD/YYYY, hh:mm A">{data.updatedAt}</Moment></td>
                 {/* <td><Button onClick={() => deleteItem(data.id)}>Delete!</Button></td> */}
               </tr>
             )
