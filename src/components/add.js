@@ -5,9 +5,8 @@ import { createSoftware } from "../graphql/mutations";
 import { Button, Form, } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { fetchDataFunc } from './fetchData';
 
-  const AddItem = () => {
+  const AddItem = ({ fetchData }) => {
   const [item, setItem] = React.useState();
 
   const save = async () => {
@@ -15,9 +14,10 @@ import 'react-toastify/dist/ReactToastify.css';
     console.log(data);
     try {
       await API.graphql(graphqlOperation(createSoftware, { input: data }));
+      fetchData();
       toast.success("Success");
-      // fetchDataFunc();
     } catch (e) {
+      console.log(e);
       toast.error('Error')
     }
   };

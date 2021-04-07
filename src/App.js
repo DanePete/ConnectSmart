@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
-import {AmplifyAuthenticator, AmplifySignIn, AmplifySignUp} from '@aws-amplify/ui-react';
 import AddItem from "./components/add";
-import FetchData from "./components/fetchData";
+import List from "./components/List";
 import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./components/navbar";
 import {listSoftwares} from './graphql/queries';
-import { Button, Table } from 'react-bootstrap'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 import Create from "./components/create";
 import SignUp from "./components/signup";
@@ -25,18 +23,29 @@ function App() {
   const [data, setData] = useState([]);
 
   React.useEffect(() => {
+    fetchData();
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData);
     });
   }, []);
-  
+
+
+    //   const deleteItem = async (id) => {
+    //     try {
+    //         const data = { id: id};
+    //         await API.graphql(graphqlOperation(deleteSoftware, { input: data }));
+    //         toast.success('Successfully Deleted Item');
+    //         fetchData();
+    //     } catch(error) {
+    //         toast.error('error deleting item');
+    //     }
+    // }
 
   const fetchData = async () => {
     try {
-      // const filter = { limit: true};
-      const data = await API.graphql(graphqlOperation(listSoftwares, {limit: 100}));
-      const dataList = data.data.listSoftwares.items;
+      const returnedData = await API.graphql(graphqlOperation(listSoftwares, {limit: 100}));
+      const dataList = returnedData.data.listSoftwares.items;
       setData(dataList);
       toast.success("Retrieved Data Successfully");
     } catch(error) {
@@ -49,21 +58,21 @@ function App() {
       <div className="App">
         <ToastContainer />
         <NavBar />  
-        <AddItem/>
+        <AddItem fetchData={fetchData}/>
         <Switch>
           <Route exact path="/">
           </Route>
           <Route path="/create">
             <Create />
           </Route>
-        </Switch>
-        <FetchData />
+        </Switch> 
+        <List data={data} />
       </div>
     </Router>
   )  : (
-    <div className="container">
-      <SignUp />
-    </div>
+  <div className="container">
+    <SignUp />
+  </div>
   );
 
 
