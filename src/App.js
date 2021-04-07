@@ -3,7 +3,7 @@ import './App.css';
 import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import AddItem from "./components/add";
-import List from "./components/List";
+import List from "./components/list";
 import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./components/navbar";
