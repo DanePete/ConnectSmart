@@ -2,7 +2,6 @@
 import React from "react";
 import { Button, Table} from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
-import Moment from 'react-moment';
 
 const List = ({data}) => {
     return (
@@ -20,7 +19,7 @@ const List = ({data}) => {
                 <td>{data.title}</td>
                 <td>{data.owner}</td>
                 <td><Button variant="info">Edit</Button></td>
-                <td><Moment format="MM/DD/YYYY, hh:mm A">{data.updatedAt}</Moment></td>
+                <td>{data.updatedAt}</td>
                 {/* <td><Button onClick={() => deleteItem(data.id)}>Delete!</Button></td> */}
               </tr>
             )
