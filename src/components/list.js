@@ -19,7 +19,7 @@ const List = ({data}) => {
                 <td>{data.title}</td>
                 <td>{data.owner}</td>
                 <td><Button variant="info">Edit</Button></td>
-                <td>{data.id}</td>
+                <td>{data.updatedAt}</td>
                 {/* <td><Button onClick={() => deleteItem(data.id)}>Delete!</Button></td> */}
               </tr>
             )

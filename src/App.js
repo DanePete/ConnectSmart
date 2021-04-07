@@ -46,6 +46,7 @@ function App() {
     try {
       const returnedData = await API.graphql(graphqlOperation(listSoftwares, {limit: 100}));
       const dataList = returnedData.data.listSoftwares.items;
+      console.log(dataList);
       setData(dataList);
       toast.success("Retrieved Data Successfully");
     } catch(error) {
