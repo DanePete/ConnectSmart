@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Button, Table} from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import Moment from 'react-moment';
 
