@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from 'redux'; 
 import {AmplifyS3Image, AmplifyS3ImagePicker} from "@aws-amplify/ui-react";
+import { listener } from './components/Authentication/authhub';
 
 
 Amplify.configure(awsconfig)
@@ -34,6 +35,7 @@ function App() {
   return authState === AuthState.SignedIn && user ? (
     <Provider store={store}>
       <Router>
+        <listener />
         <div className="App">
           <ToastContainer />
           <NavBar />  

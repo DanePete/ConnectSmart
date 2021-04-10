@@ -92,6 +92,15 @@
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
+          "category": "function",
+          "resourceName": "S3Trigger68c9398d",
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ]
+        },
+        {
           "category": "auth",
           "resourceName": "reactkeymanagementrenewal",
           "attributes": [
