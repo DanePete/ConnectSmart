@@ -99,6 +99,20 @@
             "Arn",
             "LambdaExecutionRole"
           ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "reactkeymanagementrenewal",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "AdministratorGroupRole"
+          ]
         }
       ]
     }

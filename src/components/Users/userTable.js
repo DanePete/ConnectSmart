@@ -27,6 +27,9 @@ const UserTable = ({data}) => {
           <th>UserName</th>
           <th>User Created Date</th>
           <th>Last Modifed Date</th>
+          <th>User Status</th>
+          <th>Edit</th>
+          <th>Delete</th>
         </thead>
         <tbody>
           {data.map(data => {
@@ -35,6 +38,9 @@ const UserTable = ({data}) => {
                 <td>{data.Username}</td>
                 <td><Moment format="MM/DD/YYYY, hh:mm A">{data.UserCreateDate}</Moment></td>
                 <td><Moment format="MM/DD/YYYY, hh:mm A">{data.UserLastModifiedDate}</Moment></td>
+                <td>
+                  {data.Enabled ? "active" : "not active"}
+                </td>
                 <td><Button variant="info">Edit</Button></td>
                 <td><Button onClick={() => deleteItem(data.id)}>Delete!</Button></td>
               </tr>

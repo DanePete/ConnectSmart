@@ -13,6 +13,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from 'redux'; 
+import {AmplifyS3Image, AmplifyS3ImagePicker} from "@aws-amplify/ui-react";
 
 
 Amplify.configure(awsconfig)
@@ -36,6 +37,8 @@ function App() {
         <div className="App">
           <ToastContainer />
           <NavBar />  
+          <AmplifyS3Image imgKey="pexels-lukas-590020.jpg" />
+          <AmplifyS3ImagePicker />
           {/* <AddItem fetchData={fetchData}/> */}
           <Switch>
             <Route exact path="/">
