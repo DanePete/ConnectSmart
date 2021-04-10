@@ -11,6 +11,7 @@ import {listSoftwares} from './graphql/queries';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 import Create from "./components/create";
 import SignUp from "./components/signup";
+import Users from "./components/users";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from "react-redux";
@@ -64,6 +65,7 @@ function App() {
           <ToastContainer />
           <NavBar />  
           <AddItem fetchData={fetchData}/>
+          <Users />
           <Switch>
             <Route exact path="/">
             </Route>
