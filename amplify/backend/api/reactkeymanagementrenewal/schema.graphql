@@ -46,4 +46,8 @@ type Software @model @auth(rules: [{allow: owner, ownerField: "owner"}, { allow:
   initial_purchase_date: AWSDateTime
   Keys: [Key] @connection(keyName: "bySoftware", fields: ["id"])
 }
- 
+
+type Profile @model @auth(rules: [{allow: owner, ownerField: "owner"}, { allow: groups, groups: ["Admin"] }]) {
+  id: ID!
+  profile_image: String
+}

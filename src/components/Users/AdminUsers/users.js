@@ -24,7 +24,7 @@ const Users = () => {
     let path = '/listUsersInGroup';
     let myInit = { 
         queryStringParameters: {
-          "groupname": "Editors",
+          "groupname": "Editor",
           "limit": limit,
           "token": nextToken
         },
@@ -35,6 +35,7 @@ const Users = () => {
     }
     const { NextToken, ...rest } =  await API.get(apiName, path, myInit);
     nextToken = NextToken;
+    console.log(rest);
     setData(rest.Users);
     return rest;
   }

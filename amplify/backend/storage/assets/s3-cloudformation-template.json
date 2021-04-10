@@ -83,18 +83,6 @@
         "triggerFunction": {
             "Type": "String"
         },
-        "functionS3Trigger68c9398dName": {
-            "Type": "String",
-            "Default": "functionS3Trigger68c9398dName"
-        },
-        "functionS3Trigger68c9398dArn": {
-            "Type": "String",
-            "Default": "functionS3Trigger68c9398dArn"
-        },
-        "functionS3Trigger68c9398dLambdaExecutionRole": {
-            "Type": "String",
-            "Default": "functionS3Trigger68c9398dLambdaExecutionRole"
-        },
         "authreactkeymanagementrenewalUserPoolId": {
             "Type": "String",
             "Default": "authreactkeymanagementrenewalUserPoolId"
@@ -102,6 +90,22 @@
         "authuserPoolGroupsAdministratorGroupRole": {
             "Type": "String",
             "Default": "authuserPoolGroupsAdministratorGroupRole"
+        },
+        "authuserPoolGroupsEditorGroupRole": {
+            "Type": "String",
+            "Default": "authuserPoolGroupsEditorGroupRole"
+        },
+        "functionS3Trigger68c9398dArn": {
+            "Type": "String",
+            "Default": "functionS3Trigger68c9398dArn"
+        },
+        "functionS3Trigger68c9398dName": {
+            "Type": "String",
+            "Default": "functionS3Trigger68c9398dName"
+        },
+        "functionS3Trigger68c9398dLambdaExecutionRole": {
+            "Type": "String",
+            "Default": "functionS3Trigger68c9398dLambdaExecutionRole"
         }
     },
     "Conditions": {
@@ -213,9 +217,6 @@
     "Resources": {
         "S3Bucket": {
             "Type": "AWS::S3::Bucket",
-            "DependsOn": [
-                "TriggerPermissions"
-            ],
             "DeletionPolicy": "Retain",
             "Properties": {
                 "BucketName": {
@@ -253,22 +254,6 @@
                         }
                     ]
                 },
-                "NotificationConfiguration": {
-                    "LambdaConfigurations": [
-                        {
-                            "Event": "s3:ObjectCreated:*",
-                            "Function": {
-                                "Ref": "functionS3Trigger68c9398dArn"
-                            }
-                        },
-                        {
-                            "Event": "s3:ObjectRemoved:*",
-                            "Function": {
-                                "Ref": "functionS3Trigger68c9398dArn"
-                            }
-                        }
-                    ]
-                },
                 "CorsConfiguration": {
                     "CorsRules": [
                         {
@@ -295,106 +280,27 @@
                             "MaxAge": "3000"
                         }
                     ]
-                }
-            }
-        },
-        "TriggerPermissions": {
-            "Type": "AWS::Lambda::Permission",
-            "Properties": {
-                "Action": "lambda:InvokeFunction",
-                "FunctionName": {
-                    "Ref": "functionS3Trigger68c9398dName"
                 },
-                "Principal": "s3.amazonaws.com",
-                "SourceAccount": {
-                    "Ref": "AWS::AccountId"
-                },
-                "SourceArn": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            "arn:aws:s3:::",
-                            {
-                                "Fn::If": [
-                                    "ShouldNotCreateEnvResources",
-                                    {
-                                        "Ref": "bucketName"
-                                    },
-                                    {
-                                        "Fn::Join": [
-                                            "",
-                                            [
-                                                {
-                                                    "Ref": "bucketName"
-                                                },
-                                                {
-                                                    "Fn::Select": [
-                                                        3,
-                                                        {
-                                                            "Fn::Split": [
-                                                                "-",
-                                                                {
-                                                                    "Ref": "AWS::StackName"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                "-",
-                                                {
-                                                    "Ref": "env"
-                                                }
-                                            ]
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    ]
-                }
-            }
-        },
-        "S3TriggerBucketPolicy": {
-            "DependsOn": [
-                "S3Bucket"
-            ],
-            "Type": "AWS::IAM::Policy",
-            "Properties": {
-                "PolicyName": "amplify-lambda-execution-policy",
-                "Roles": [
-                    {
-                        "Ref": "functionS3Trigger68c9398dLambdaExecutionRole"
-                    }
-                ],
-                "PolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
+                "NotificationConfiguration": {
+                    "LambdaConfigurations": [
                         {
-                            "Effect": "Allow",
-                            "Action": [
-                                "s3:PutObject",
-                                "s3:GetObject",
-                                "s3:ListBucket",
-                                "s3:DeleteObject"
-                            ],
-                            "Resource": [
-                                {
-                                    "Fn::Join": [
-                                        "",
-                                        [
-                                            "arn:aws:s3:::",
-                                            {
-                                                "Ref": "S3Bucket"
-                                            },
-                                            "/*"
-                                        ]
-                                    ]
-                                }
-                            ]
+                            "Event": "s3:ObjectCreated:*",
+                            "Function": {
+                                "Ref": "functionS3Trigger68c9398dArn"
+                            }
+                        },
+                        {
+                            "Event": "s3:ObjectRemoved:*",
+                            "Function": {
+                                "Ref": "functionS3Trigger68c9398dArn"
+                            }
                         }
                     ]
                 }
-            }
+            },
+            "DependsOn": [
+                "TriggerPermissions"
+            ]
         },
         "S3AuthPublicPolicy": {
             "DependsOn": [
@@ -845,7 +751,10 @@
                         {
                             "Effect": "Allow",
                             "Action": [
-                                "s3:PutObject"
+                                "s3:PutObject",
+                                "s3:GetObject",
+                                "s3:ListBucket",
+                                "s3:DeleteObject"
                             ],
                             "Resource": [
                                 {
@@ -861,7 +770,202 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": "s3:ListBucket",
+                            "Resource": [
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:s3:::",
+                                            {
+                                                "Ref": "S3Bucket"
+                                            }
+                                        ]
+                                    ]
+                                }
+                            ]
                         }
+                    ]
+                }
+            }
+        },
+        "EditorGroupPolicy": {
+            "Type": "AWS::IAM::Policy",
+            "Properties": {
+                "PolicyName": "Editor-group-s3-policy",
+                "Roles": [
+                    {
+                        "Fn::Join": [
+                            "",
+                            [
+                                {
+                                    "Ref": "authreactkeymanagementrenewalUserPoolId"
+                                },
+                                "-EditorGroupRole"
+                            ]
+                        ]
+                    }
+                ],
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "s3:PutObject",
+                                "s3:GetObject",
+                                "s3:ListBucket",
+                                "s3:DeleteObject"
+                            ],
+                            "Resource": [
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:s3:::",
+                                            {
+                                                "Ref": "S3Bucket"
+                                            },
+                                            "/*"
+                                        ]
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": "s3:ListBucket",
+                            "Resource": [
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:s3:::",
+                                            {
+                                                "Ref": "S3Bucket"
+                                            }
+                                        ]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "S3TriggerBucketPolicy": {
+            "Type": "AWS::IAM::Policy",
+            "DependsOn": [
+                "S3Bucket"
+            ],
+            "Properties": {
+                "PolicyName": "s3-trigger-lambda-execution-policy",
+                "Roles": [
+                    {
+                        "Ref": "functionS3Trigger68c9398dLambdaExecutionRole"
+                    }
+                ],
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "s3:PutObject",
+                                "s3:GetObject",
+                                "s3:DeleteObject"
+                            ],
+                            "Resource": [
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:s3:::",
+                                            {
+                                                "Ref": "S3Bucket"
+                                            },
+                                            "/*"
+                                        ]
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Action": "s3:ListBucket",
+                            "Resource": [
+                                {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:s3:::",
+                                            {
+                                                "Ref": "S3Bucket"
+                                            }
+                                        ]
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "TriggerPermissions": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+                "Action": "lambda:InvokeFunction",
+                "FunctionName": {
+                    "Ref": "functionS3Trigger68c9398dName"
+                },
+                "Principal": "s3.amazonaws.com",
+                "SourceAccount": {
+                    "Ref": "AWS::AccountId"
+                },
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:s3:::",
+                            {
+                                "Fn::If": [
+                                    "ShouldNotCreateEnvResources",
+                                    {
+                                        "Ref": "bucketName"
+                                    },
+                                    {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                {
+                                                    "Ref": "bucketName"
+                                                },
+                                                {
+                                                    "Fn::Select": [
+                                                        3,
+                                                        {
+                                                            "Fn::Split": [
+                                                                "-",
+                                                                {
+                                                                    "Ref": "AWS::StackName"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                "-",
+                                                {
+                                                    "Ref": "env"
+                                                }
+                                            ]
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     ]
                 }
             }

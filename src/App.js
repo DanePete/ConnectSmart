@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./components/navbar";
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import SignUp from "./components/Authentication/signup";
-import Users from "./components/Users/users";
+import Users from "./components/Users/AdminUsers/users";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from "react-redux";
@@ -37,8 +37,8 @@ function App() {
         <div className="App">
           <ToastContainer />
           <NavBar />  
-          <AmplifyS3Image imgKey="pexels-lukas-590020.jpg" />
-          <AmplifyS3ImagePicker />
+          {/* <AmplifyS3Image imgKey="Sketch.png" />
+          <AmplifyS3ImagePicker /> */}
           {/* <AddItem fetchData={fetchData}/> */}
           <Switch>
             <Route exact path="/">
