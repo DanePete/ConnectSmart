@@ -13,14 +13,17 @@ import Create from "./components/create";
 import SignUp from "./components/signup";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from 'redux'; 
+
 
 Amplify.configure(awsconfig)
 
 function App() {
-
   const [authState, setAuthState] = React.useState();
   const [user, setUser] = React.useState();
   const [data, setData] = useState([]);
+  const store = createStore(() => [], {}, applyMiddleware());
 
   React.useEffect(() => {
     fetchData();
@@ -55,21 +58,23 @@ function App() {
   } 
 
   return authState === AuthState.SignedIn && user ? (
-    <Router>
-      <div className="App">
-        <ToastContainer />
-        <NavBar />  
-        <AddItem fetchData={fetchData}/>
-        <Switch>
-          <Route exact path="/">
-          </Route>
-          <Route path="/create">
-            <Create />
-          </Route>
-        </Switch> 
-        <List data={data} />
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <ToastContainer />
+          <NavBar />  
+          <AddItem fetchData={fetchData}/>
+          <Switch>
+            <Route exact path="/">
+            </Route>
+            <Route path="/create">
+              <Create />
+            </Route>
+          </Switch> 
+          <List data={data} />
+        </div>
+      </Router>
+    </Provider>
   )  : (
   <div className="container">
     <SignUp />
