@@ -2,15 +2,14 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
-import AddItem from "./components/add";
-import List from "./components/list";
+import AddItem from "./components/Software/add";
+import List from "./components/Software/list";
 import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./components/navbar";
 import {listSoftwares} from './graphql/queries';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
-import Create from "./components/create";
-import SignUp from "./components/signup";
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import SignUp from "./components/Software/Authentication/signup";
 import Users from "./components/users";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -65,15 +64,17 @@ function App() {
           <ToastContainer />
           <NavBar />  
           <AddItem fetchData={fetchData}/>
-          <Users />
           <Switch>
             <Route exact path="/">
+              <List data={data} />
             </Route>
             <Route path="/create">
-              <Create />
+            </Route>
+            <Route exact path="/users">
+              <Users />
             </Route>
           </Switch> 
-          <List data={data} />
+          
         </div>
       </Router>
     </Provider>
