@@ -41,7 +41,7 @@ function App() {
           <ToastContainer />
           <SideBar />
           <div className="main">
-            {/* <Header /> */}
+            <Header />
             {/* <AmplifyS3Image imgKey="Sketch.png" />
             <AmplifyS3ImagePicker /> */}
             <Switch>
