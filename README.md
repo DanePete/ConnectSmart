@@ -2,7 +2,7 @@
 
 Fullish stack project to learn React and improve my Javascript abilities, AWS Amplify [CLI, Cognito, AppSync, DynamnoDB, Lambda, graphAL, S3]
 
-**DEVELOP URL: https://main.d311b3ehgee7rv.amplifyapp.com/
+**DEVELOP URL: https://main.d35wg83f4ojodc.amplifyapp.com/
 
 **Compnents**
 - [ ] Customer
