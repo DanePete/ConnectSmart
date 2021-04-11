@@ -7,7 +7,7 @@ import {
 const SignUp = () => {
   return ( 
     <div className = "signIn" >
-      <AmplifyAuthenticator usernameAlias = "preferred_username" >
+      <AmplifyAuthenticator usernameAlias = "email" >
         <AmplifySignUp slot = "sign-up"
           usernameAlias = "email"
           formFields = {
