@@ -8,9 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {deleteSoftware} from "../../graphql/mutations";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { fetchData } from './software';
+import { Link, useParams } from "react-router-dom";
 
-const List = ({data}, { fetchData }) => {
+const List = ({data, fetchData}) => {
+  const { account } = useParams()
 
   const deleteItem = async (id) => {
     try {
@@ -32,15 +33,17 @@ const List = ({data}, { fetchData }) => {
           <th colSpan="2"></th>
         </thead>
         <tbody>
-          {console.log('got here')}
-          {console.log(data)}
         {data.map(data => {
           return (
             <tr>
               <td>{data.title}</td>
               <td>{data.owner}</td>
               <td><Moment format="MM/DD/YYYY, hh:mm A">{data.updatedAt}</Moment></td>
-              <td><Button variant="info">Edit</Button></td>
+              <td>
+                <Link to={`/editSoftware/${data.id}/${data.title}`}>
+                  <Button variant="info">Edit</Button>
+                </Link>
+              </td>
               <td><Button onClick={() => deleteItem(data.id)}>Delete!</Button></td>
             </tr>
           )
@@ -52,3 +55,5 @@ const List = ({data}, { fetchData }) => {
 };
   
   export default List;
+
+  

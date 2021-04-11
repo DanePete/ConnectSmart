@@ -21,17 +21,6 @@ const Software = () => {
   React.useEffect(() => {
     fetchData();
   }, []);
-
-  const deleteItem = async (id) => {
-    try {
-      const data = { id: id};
-      await API.graphql(graphqlOperation(deleteSoftware, { input: data }));
-      toast.success('Successfully Deleted Item');
-      fetchData();
-    } catch(error) {
-        toast.error('error deleting item');
-    }
-  }
   
   const fetchData = async () => {
     try {
@@ -39,7 +28,6 @@ const Software = () => {
       const dataList = returnedData.data.listSoftwares.items;
       console.log(dataList);
       setData(dataList);
-      toast.success("Retrieved Data Successfully");
     } catch(error) {
       toast.error('Error in retrieving Data')
     }

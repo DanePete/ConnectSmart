@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from 'redux'; 
 import SideBar from "./components/SidebarMenu/sidebar";
 import Dashboard from "./components/Dashboard/dashboard";
+import EditSoftware from "./components/Software/editSoftware";
 
 
 
@@ -50,6 +51,9 @@ function App() {
               </Route>
               <Route exact path="/users">
                 <Users />
+              </Route>
+              <Route exact path="/editSoftware/:id/:name" component={EditSoftware}>
+              
               </Route>
             </Switch> 
           </div>
