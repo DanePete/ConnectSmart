@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import {AmplifySignOut} from '@aws-amplify/ui-react';
 import { AiOutlineUser } from 'react-icons/ai';
 import { GoDashboard } from 'react-icons/go';
-import { GrUserAdmin} from 'react-icons/gr';
+import { GrUserAdmin, GrOrganization} from 'react-icons/gr';
 import { RiComputerLine } from 'react-icons/ri';
 
 const SideBar = () => {
@@ -24,7 +24,11 @@ const SideBar = () => {
             <MenuItem icon={<RiComputerLine />}>
               View Software
               <Link to="/software" />
-            </MenuItem>          
+            </MenuItem>
+            <MenuItem icon={<GrOrganization />}>
+              View Companies
+              <Link to="/companies" />
+            </MenuItem>  
             <SubMenu title="Administration" icon={<GrUserAdmin />}>
               <MenuItem icon={<AiOutlineUser />}>
                 Users

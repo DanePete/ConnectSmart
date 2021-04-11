@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './App.css';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -16,6 +16,7 @@ import SideBar from "./components/SidebarMenu/sidebar";
 import Dashboard from "./components/Dashboard/dashboard";
 import EditSoftware from "./components/Software/editSoftware";
 import Header from "./components/Header/header";
+import Company from "./components/Company/company";
 
 
 
@@ -53,6 +54,9 @@ function App() {
               </Route>
               <Route exact path="/users">
                 <Users />
+              </Route>
+              <Route exact path="/companies">
+                <Company />
               </Route>
               <Route exact path="/editSoftware/:id/:name" component={EditSoftware}>
               
