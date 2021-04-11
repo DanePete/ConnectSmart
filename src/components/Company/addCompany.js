@@ -53,7 +53,7 @@ import TextField from '@material-ui/core/TextField';
     const [item, setItem] = React.useState();
 
     const save = async () => {
-      const data = { name: item};
+      const data = { name: item, is_active: true};
       console.log(data);
       try {
         await API.graphql(graphqlOperation(createCustomer, { input: data }));
