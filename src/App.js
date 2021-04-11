@@ -15,6 +15,7 @@ import { createStore, applyMiddleware } from 'redux';
 import SideBar from "./components/SidebarMenu/sidebar";
 import Dashboard from "./components/Dashboard/dashboard";
 import EditSoftware from "./components/Software/editSoftware";
+import Header from "./components/Header/header";
 
 
 
@@ -40,6 +41,7 @@ function App() {
           <ToastContainer />
           <SideBar />
           <div className="main">
+            {/* <Header /> */}
             {/* <AmplifyS3Image imgKey="Sketch.png" />
             <AmplifyS3ImagePicker /> */}
             <Switch>
