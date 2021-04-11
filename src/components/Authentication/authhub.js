@@ -5,14 +5,8 @@ const logger = new Logger('My-Logger');
 const listener = (data) => {
     switch (data.payload.event) {
         case 'signIn':
-            logger.info('user signed in');
-            console.log("user signed in you")
-            console.log(data.payload);
             break;
         case 'signUp':
-            logger.info('user signed up');
-            console.log('user signed up');
-            console.log(data.payload);
             break;
         case 'signOut':
             logger.info('user signed out');
