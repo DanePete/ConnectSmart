@@ -3,10 +3,9 @@ import React from "react";
 import { Button, Table } from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import Moment from 'react-moment';
-import deleteItem from '../../Software/software'
 import {deleteSoftware} from "../../../graphql/mutations";
-import { ToastContainer, toast } from 'react-toastify';
-import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
+import { toast } from 'react-toastify';
+import { API, graphqlOperation } from 'aws-amplify';
 
 const UserTable = ({data}) => {
 

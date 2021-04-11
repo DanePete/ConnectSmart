@@ -1,9 +1,9 @@
 
-import React, { Component } from "react";
+import React from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { createSoftware } from "../../graphql/mutations";
 import { Button, Form, } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
   const AddItem = ({ fetchData }) => {
