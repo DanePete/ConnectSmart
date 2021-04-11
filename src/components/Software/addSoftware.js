@@ -100,6 +100,16 @@ import TextField from '@material-ui/core/TextField';
               placeholder="Software Title"
               onChange={e => setItem(e.target.value)}
             />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="title"
+              // label="Software Purchase Date"
+              type="date"
+              fullWidth
+              // placeholder="Software Title"
+              onChange={e => setItem(e.target.value)}
+            />
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} color="primary">
