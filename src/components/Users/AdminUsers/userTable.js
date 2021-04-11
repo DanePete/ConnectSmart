@@ -149,6 +149,7 @@ const UserTable = ({data}) => {
       <Table striped bordered hover variant="dark" responsive>
         <thead>
           <th>UserName</th>
+          <th>User Group</th>
           <th>User Created Date</th>
           <th>Last Modifed Date</th>
           <th>User Status</th>
@@ -159,6 +160,7 @@ const UserTable = ({data}) => {
             return (
               <tr>
                 <td>{data.Username}</td>
+                <td>__PLACEHOLDER__ __USER_GROUP_DATA__</td>
                 <td><Moment format="MM/DD/YYYY, hh:mm A">{data.UserCreateDate}</Moment></td>
                 <td><Moment format="MM/DD/YYYY, hh:mm A">{data.UserLastModifiedDate}</Moment></td>
                 <td>
