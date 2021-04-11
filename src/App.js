@@ -5,7 +5,6 @@ import awsconfig from './aws-exports';
 import Software from "./components/Software/software";
 import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from "./components/navbar";
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import SignUp from "./components/Authentication/signup";
 import Users from "./components/Users/AdminUsers/users";
@@ -15,6 +14,8 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from 'redux'; 
 import {AmplifyS3Image, AmplifyS3ImagePicker} from "@aws-amplify/ui-react";
 import { listener } from './components/Authentication/authhub';
+import SideBar from "./components/SidebarMenu/sidebar";
+
 
 
 Amplify.configure(awsconfig)
@@ -38,19 +39,21 @@ function App() {
         <listener />
         <div className="App">
           <ToastContainer />
-          <NavBar />  
-          {/* <AmplifyS3Image imgKey="Sketch.png" />
-          <AmplifyS3ImagePicker /> */}
-          <Switch>
-            <Route exact path="/">
-            </Route>
-            <Route path="/software">
-              <Software />
-            </Route>
-            <Route exact path="/users">
-              <Users />
-            </Route>
-          </Switch> 
+          <SideBar />
+          <div className="main">
+            {/* <AmplifyS3Image imgKey="Sketch.png" />
+            <AmplifyS3ImagePicker /> */}
+            <Switch>
+              <Route exact path="/">
+              </Route>
+              <Route path="/software">
+                <Software />
+              </Route>
+              <Route exact path="/users">
+                <Users />
+              </Route>
+            </Switch> 
+          </div>
         </div>
       </Router>
     </Provider>
