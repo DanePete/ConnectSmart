@@ -51,3 +51,8 @@ type Profile @model @auth(rules: [{allow: owner, ownerField: "owner"}, { allow: 
   id: ID!
   profile_image: String
 }
+
+type ProfileAdmin @model @auth(rules: [{allow: owner, ownerField: "owner"}, { allow: groups, groups: ["Admin"] }]) {
+  id: ID!
+  profile_image: String
+}

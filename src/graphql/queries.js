@@ -253,3 +253,32 @@ export const listProfiles = /* GraphQL */ `
     }
   }
 `;
+export const getProfileAdmin = /* GraphQL */ `
+  query GetProfileAdmin($id: ID!) {
+    getProfileAdmin(id: $id) {
+      id
+      profile_image
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listProfileAdmins = /* GraphQL */ `
+  query ListProfileAdmins(
+    $filter: ModelProfileAdminFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listProfileAdmins(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        profile_image
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;

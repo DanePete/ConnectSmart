@@ -385,3 +385,45 @@ export const deleteProfile = /* GraphQL */ `
     }
   }
 `;
+export const createProfileAdmin = /* GraphQL */ `
+  mutation CreateProfileAdmin(
+    $input: CreateProfileAdminInput!
+    $condition: ModelProfileAdminConditionInput
+  ) {
+    createProfileAdmin(input: $input, condition: $condition) {
+      id
+      profile_image
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateProfileAdmin = /* GraphQL */ `
+  mutation UpdateProfileAdmin(
+    $input: UpdateProfileAdminInput!
+    $condition: ModelProfileAdminConditionInput
+  ) {
+    updateProfileAdmin(input: $input, condition: $condition) {
+      id
+      profile_image
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteProfileAdmin = /* GraphQL */ `
+  mutation DeleteProfileAdmin(
+    $input: DeleteProfileAdminInput!
+    $condition: ModelProfileAdminConditionInput
+  ) {
+    deleteProfileAdmin(input: $input, condition: $condition) {
+      id
+      profile_image
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;

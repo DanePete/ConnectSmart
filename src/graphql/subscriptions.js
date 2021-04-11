@@ -313,3 +313,36 @@ export const onDeleteProfile = /* GraphQL */ `
     }
   }
 `;
+export const onCreateProfileAdmin = /* GraphQL */ `
+  subscription OnCreateProfileAdmin($owner: String) {
+    onCreateProfileAdmin(owner: $owner) {
+      id
+      profile_image
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateProfileAdmin = /* GraphQL */ `
+  subscription OnUpdateProfileAdmin($owner: String) {
+    onUpdateProfileAdmin(owner: $owner) {
+      id
+      profile_image
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteProfileAdmin = /* GraphQL */ `
+  subscription OnDeleteProfileAdmin($owner: String) {
+    onDeleteProfileAdmin(owner: $owner) {
+      id
+      profile_image
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;

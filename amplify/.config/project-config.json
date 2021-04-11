@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "reactkeymanagementre",
+  "projectName": "ConnectSmart",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
