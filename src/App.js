@@ -41,7 +41,6 @@ function App() {
           <NavBar />  
           {/* <AmplifyS3Image imgKey="Sketch.png" />
           <AmplifyS3ImagePicker /> */}
-          {/* <AddItem fetchData={fetchData}/> */}
           <Switch>
             <Route exact path="/">
             </Route>
