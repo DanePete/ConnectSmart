@@ -4,6 +4,16 @@
   display: flex;
 }
 
+.dashboard {
+  background: #d60a0a;
+  color: white;
+  /* border: 1px solid rgb(39, 39, 179); */
+  box-shadow: 1px 5px 5px black;
+  padding: 20px;
+  width: 25%;
+  margin: 0 auto;
+}
+
 #root {
   background: #292828;
   color: white;
