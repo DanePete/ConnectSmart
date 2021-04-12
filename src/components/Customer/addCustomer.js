@@ -109,7 +109,7 @@ import * as yup from 'yup';
 
     return (
       <div>
-        <h1>Companies</h1>
+        <h1>Customers</h1>
         <Button            
           variant="contained"
           color="primary"
@@ -117,19 +117,19 @@ import * as yup from 'yup';
           className={classes.button}
           startIcon={<SaveIcon />}
           onClick={handleClickOpen}>
-            Add Company
+            Add Customer
         </Button>
 
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-          <DialogTitle id="form-dialog-title">Add Software</DialogTitle>
+          <DialogTitle id="form-dialog-title">Add Customer</DialogTitle>
           <DialogContent>
 
             <DialogContentText>
-              Company will be added instantaneously on save 
+              Customer will be added instantaneously on save 
             </DialogContentText>
 
             <form onSubmit={formik.handleSubmit}>
-              <label htmlFor="name">Company Name</label>
+              <label htmlFor="name">Customer Name</label>
               
               <TextField
                 id="name"

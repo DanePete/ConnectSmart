@@ -75,7 +75,7 @@ const SideBar = props => {
     {
       text: 'Companies',
       icon: <MailIcon />,
-      onClick: () => history.push('/companies')
+      onClick: () => history.push('/customers')
     }, 
     {
       text: 'Software',

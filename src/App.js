@@ -16,7 +16,7 @@ import SideBar from "./components/SidebarMenu/sidebar";
 import Dashboard from "./components/Dashboard/dashboard";
 import EditSoftware from "./components/Software/editSoftware";
 import Header from "./components/Header/header";
-import Company from "./components/Company/company";
+import Customer from "./components/Customer/customer";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import { css } from "@emotion/core";
 import Project from "./components/Project/project";
@@ -74,8 +74,8 @@ function App() {
                   <Route exact path="/users">
                     <Users />
                   </Route>
-                  <Route exact path="/companies">
-                    <Company />
+                  <Route exact path="/customers">
+                    <Customer />
                   </Route>
                   <Route exact path="/projects">
                     <Project />

@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from "react";
 import 'react-toastify/dist/ReactToastify.css';
-import AddItem from "./addCompany"
-import List from "./companyTable";
+import AddItem from "./addCustomer"
+import List from "./customerTable";
 import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {listCustomers} from '../../graphql/queries';
