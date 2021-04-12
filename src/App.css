@@ -1,7 +1,15 @@
 .App {
   text-align: center;
   height: 100vh;
-  display: flex;
+  margin-left: 240px;
+}
+
+.bottomPush {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 240px;
+  padding-bottom: 10;
 }
 
 .dashboard {
