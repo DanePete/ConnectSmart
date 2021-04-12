@@ -32,11 +32,14 @@ export const onDeleteTimeEntry = /* GraphQL */ `
   }
 `;
 export const onCreateProject = /* GraphQL */ `
-  subscription OnCreateProject {
-    onCreateProject {
+  subscription OnCreateProject($owner: String) {
+    onCreateProject(owner: $owner) {
       id
+      title
+      is_active
       createdAt
       updatedAt
+      owner
       Tickets {
         nextToken
       }
@@ -44,11 +47,14 @@ export const onCreateProject = /* GraphQL */ `
   }
 `;
 export const onUpdateProject = /* GraphQL */ `
-  subscription OnUpdateProject {
-    onUpdateProject {
+  subscription OnUpdateProject($owner: String) {
+    onUpdateProject(owner: $owner) {
       id
+      title
+      is_active
       createdAt
       updatedAt
+      owner
       Tickets {
         nextToken
       }
@@ -56,11 +62,14 @@ export const onUpdateProject = /* GraphQL */ `
   }
 `;
 export const onDeleteProject = /* GraphQL */ `
-  subscription OnDeleteProject {
-    onDeleteProject {
+  subscription OnDeleteProject($owner: String) {
+    onDeleteProject(owner: $owner) {
       id
+      title
+      is_active
       createdAt
       updatedAt
+      owner
       Tickets {
         nextToken
       }

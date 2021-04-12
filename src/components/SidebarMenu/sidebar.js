@@ -83,6 +83,11 @@ const SideBar = props => {
       onClick: () => history.push('/software')
     },
     {
+      text: 'Project',
+      icon: <MailIcon />,
+      onClick: () => history.push('/projects')
+    },
+    {
       text: 'Users',
       icon: <MailIcon />,
       onClick: () => history.push('/users')
@@ -120,7 +125,7 @@ const SideBar = props => {
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
-  
+
   return (
     <div className={classes.root}>
       <CssBaseline />

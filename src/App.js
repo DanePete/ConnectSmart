@@ -19,6 +19,7 @@ import Header from "./components/Header/header";
 import Company from "./components/Company/company";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import { css } from "@emotion/core";
+import Project from "./components/Project/project";
 
 
 
@@ -75,6 +76,9 @@ function App() {
                   </Route>
                   <Route exact path="/companies">
                     <Company />
+                  </Route>
+                  <Route exact path="/projects">
+                    <Project />
                   </Route>
                   <Route exact path="/editSoftware/:id/:name" component={EditSoftware}>
                   

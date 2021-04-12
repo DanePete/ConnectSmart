@@ -3,8 +3,10 @@ type TimeEntry @model @auth(rules: [{allow: private}]) @key(name: "byTicket", fi
   ticketID: ID
 }
 
-type Project @model @auth(rules: [{allow: private}]) {
+type Project @model @auth(rules: [{allow: owner, ownerField: "owner"}, { allow: groups, groups: ["Admin"] }]) {
   id: ID!
+  title: String
+  is_active: Boolean
   Tickets: [Ticket] @connection(keyName: "byProject", fields: ["id"])
 }
 

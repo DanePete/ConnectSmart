@@ -47,8 +47,11 @@ export const createProject = /* GraphQL */ `
   ) {
     createProject(input: $input, condition: $condition) {
       id
+      title
+      is_active
       createdAt
       updatedAt
+      owner
       Tickets {
         nextToken
       }
@@ -62,8 +65,11 @@ export const updateProject = /* GraphQL */ `
   ) {
     updateProject(input: $input, condition: $condition) {
       id
+      title
+      is_active
       createdAt
       updatedAt
+      owner
       Tickets {
         nextToken
       }
@@ -77,8 +83,11 @@ export const deleteProject = /* GraphQL */ `
   ) {
     deleteProject(input: $input, condition: $condition) {
       id
+      title
+      is_active
       createdAt
       updatedAt
+      owner
       Tickets {
         nextToken
       }

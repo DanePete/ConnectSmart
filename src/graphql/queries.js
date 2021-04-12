@@ -32,8 +32,11 @@ export const getProject = /* GraphQL */ `
   query GetProject($id: ID!) {
     getProject(id: $id) {
       id
+      title
+      is_active
       createdAt
       updatedAt
+      owner
       Tickets {
         nextToken
       }
@@ -49,8 +52,11 @@ export const listProjects = /* GraphQL */ `
     listProjects(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        title
+        is_active
         createdAt
         updatedAt
+        owner
       }
       nextToken
     }
