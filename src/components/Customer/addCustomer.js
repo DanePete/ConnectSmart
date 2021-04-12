@@ -96,7 +96,7 @@ import * as yup from 'yup';
      * formik (ie form) submit
      */
     const formik = useFormik({
-      initialValues: { email: "foobar@example.com", name: "foobar", active: false },
+      initialValues: { email: "", name: "", active: false },
       validationSchema: validationSchema,
       onSubmit: values => {
         save(values.name);
@@ -133,6 +133,7 @@ import * as yup from 'yup';
               
               <TextField
                 id="name"
+                placeholder="customer name"
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 error={formik.touched.name && Boolean(formik.errors.name)}
@@ -142,6 +143,7 @@ import * as yup from 'yup';
               <label htmlFor="email">Email Address</label>
               <TextField
                 id="email"
+                placeholder="customer email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 error={formik.touched.email && Boolean(formik.errors.email)}
