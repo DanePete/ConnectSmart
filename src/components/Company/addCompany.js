@@ -9,12 +9,18 @@ import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import { red } from '@material-ui/core/colors';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
+import Checkbox from "@material-ui/core/Checkbox";
+import { useFormik } from "formik";
+import * as yup from 'yup';
 
+
+  /**
+   * styling params for form
+   */
   const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
@@ -38,22 +44,29 @@ import TextField from '@material-ui/core/TextField';
     },
   }));
 
+  /**
+   * our default cloass
+   */
   const AddItem = ({ fetchData }) => {
+    // object holding our classes
+    const classes = useStyles();
 
+    /**
+     * material ui dialog handlers and state
+     */
     const [open, setOpen] = React.useState(false);
-
     const handleClickOpen = () => {
       setOpen(true);
     };
-    
     const handleClose = () => {
       setOpen(false);
     };
 
-    const [item, setItem] = React.useState();
-
-    const save = async () => {
-      const data = { name: item, is_active: true};
+    /**
+     * Saving form data calling createCustomer graphQL mutation
+     */
+    const save = async (name) => {
+      const data = { name: name, is_active: true};
       console.log(data);
       try {
         await API.graphql(graphqlOperation(createCustomer, { input: data }));
@@ -65,12 +78,31 @@ import TextField from '@material-ui/core/TextField';
       }
     };
 
-    const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-
-    const handleExpandClick = () => {
-      setExpanded(!expanded);
-    };
+    /**
+     * form validation via yup module
+     */
+    const validationSchema = yup.object({
+      email: yup
+        .string('Enter your email')
+        .email('Enter a valid email')
+        .required('Email is required'),
+      name: yup
+        .string('Enter your password')
+        .min(8, 'Password should be of minimum 8 characters length')
+        .required('Companyname is required'),
+    });
+    
+    /**
+     * formik (ie form) submit
+     */
+    const formik = useFormik({
+      initialValues: { email: "foobar@example.com", name: "foobar", active: false },
+      validationSchema: validationSchema,
+      onSubmit: values => {
+        save(values.name);
+        handleClose();
+      }
+    });    
 
 //customer_url
 //customer_phone
@@ -87,70 +119,47 @@ import TextField from '@material-ui/core/TextField';
           onClick={handleClickOpen}>
             Add Company
         </Button>
+
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Add Software</DialogTitle>
           <DialogContent>
+
             <DialogContentText>
               Company will be added instantaneously on save 
             </DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="title"
-              label="Company Name"
-              type="text"
-              fullWidth
-              placeholder="Company Name"
-              onChange={e => setItem(e.target.value)}
-            />
-            <TextField
-              autoFocus
-              margin="dense"
-              id="Company Phone Number"
-              // label="Software Purchase Date"
-              type="email"
-              fullWidth
-              // placeholder="Software Title"
-              onChange={e => setItem(e.target.value)}
-            />
-            <TextField
-              autoFocus
-              margin="dense"
-              id="Company Website"
-              // label="Software Purchase Date"
-              type="url"
-              fullWidth
-              // placeholder="Software Title"
-              onChange={e => setItem(e.target.value)}
-            />            
-            <TextField
-              autoFocus
-              margin="dense"
-              id="title"
-              // label="Software Purchase Date"
-              type="date"
-              fullWidth
-              // placeholder="Software Title"
-              onChange={e => setItem(e.target.value)}
-            />
+
+            <form onSubmit={formik.handleSubmit}>
+              <label htmlFor="name">Company Name</label>
+              
+              <TextField
+                id="name"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                error={formik.touched.name && Boolean(formik.errors.name)}
+                helperText={formik.touched.name && formik.errors.name}
+              />             
+              
+              <label htmlFor="email">Email Address</label>
+              <TextField
+                id="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.email)}
+                helperText={formik.touched.email && formik.errors.email}
+              />
+
+              <label htmlFor="active">Active?</label>
+              <Checkbox 
+                id="active"
+                value={formik.values.active}
+                onChange={formik.handleChange}
+                error={formik.touched.email && Boolean(formik.errors.active)}
+                helperText={formik.touched.active && formik.errors.active}
+              />
+              
+              <Button type="submit">Submit</Button>
+            </form>
           </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button          
-              variant="contained"
-              color="primary"
-              size="large"
-              className={classes.button}
-              startIcon={<SaveIcon />} 
-              onClick={() => {
-                save();
-                handleClose();
-              }}>
-              Save
-            </Button>
-          </DialogActions>
         </Dialog>
       </div>
     );
