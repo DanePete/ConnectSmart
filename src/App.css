@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   height: 100vh;
-  margin-left: 240px;
+  display: flex;
 }
 
 .bottomPush {
@@ -54,6 +54,7 @@ amplify-authenticator {
 
 .main {
   padding: 24px;
+  margin-top: 64px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;

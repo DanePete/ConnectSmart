@@ -1,22 +1,27 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import AddItem from "./addSoftware"
 import List from "./softwareTable";
-import Amplify, { API, graphqlOperation, Auth } from 'aws-amplify';
-// import awsconfig from './aws-exports';
-// import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
+import { API, graphqlOperation } from 'aws-amplify';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import NavBar from "./components/navbar";
 import {listSoftwares} from '../../graphql/queries';
-// import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-// import SignUp from "./components/Authentication/signup";
-import {deleteSoftware} from "../../graphql/mutations";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import { css } from "@emotion/core";
 
 const Software = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const override = css`
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+`;
 
   React.useEffect(() => {
     fetchData();
@@ -28,15 +33,20 @@ const Software = () => {
       const dataList = returnedData.data.listSoftwares.items;
       console.log(dataList);
       setData(dataList);
+      setLoading(false);
     } catch(error) {
-      toast.error('Error in retrieving Data')
+      // toast.error('Error in retrieving Data')
     }
   } 
 
     return (
         <div>
-            <AddItem fetchData={fetchData}/>
-            <List fetchData={fetchData} data={data}/>
+          { loading ? <ClimbingBoxLoader css={override} size={50} color={"#ff9900"} loading={loading} /> : 
+            <div>
+              <AddItem fetchData={fetchData}/>
+              <List fetchData={fetchData} data={data}/>
+            </div>
+          }
         </div>
     );
 };
