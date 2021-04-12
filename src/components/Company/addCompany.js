@@ -72,6 +72,9 @@ import TextField from '@material-ui/core/TextField';
       setExpanded(!expanded);
     };
 
+//customer_url
+//customer_phone
+
     return (
       <div>
         <h1>Companies</h1>
@@ -100,6 +103,26 @@ import TextField from '@material-ui/core/TextField';
               placeholder="Company Name"
               onChange={e => setItem(e.target.value)}
             />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="Company Phone Number"
+              // label="Software Purchase Date"
+              type="email"
+              fullWidth
+              // placeholder="Software Title"
+              onChange={e => setItem(e.target.value)}
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="Company Website"
+              // label="Software Purchase Date"
+              type="url"
+              fullWidth
+              // placeholder="Software Title"
+              onChange={e => setItem(e.target.value)}
+            />            
             <TextField
               autoFocus
               margin="dense"
