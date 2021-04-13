@@ -104,7 +104,8 @@ const SideBar = props => {
       onClick: () => {
         console.log("triggered click event")
         Analytics.record({
-          name: 'button press from web'
+          name: 'button press from web',
+          attributes: {project: 'connectSmart'}
         })
       }
     }
