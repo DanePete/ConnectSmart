@@ -20,7 +20,6 @@ const Project = () => {
     try {
       const returnedData = await API.graphql(graphqlOperation(listProjects, {limit: 100}));
       const dataList = returnedData.data.listProjects.items;
-      console.log(dataList);
       setData(dataList);
     } catch(error) {
       toast.error('Error in retrieving Data')

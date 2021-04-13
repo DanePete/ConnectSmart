@@ -9,15 +9,23 @@ import {deleteSoftware} from "../../graphql/mutations";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchData } from '../../redux/software'
+import { increment } from "../../redux/counter";
 
-const List = ({data, fetchData}) => {
+const List = () => {
   const { account } = useParams()
+  // const tableData = data.softwareData;
+ 
+  const software = useSelector((state) => state.software);
+  console.log(software);
+
+  console.log(software);
 
   const deleteItem = async (id) => {
     try {
       const data = { id: id};
       await API.graphql(graphqlOperation(deleteSoftware, { input: data }));
-      fetchData();
       toast.success('Successfully Deleted Item');
     } catch(error) {
         toast.error('error deleting item');
@@ -33,21 +41,7 @@ const List = ({data, fetchData}) => {
           <th colSpan="2"></th>
         </thead>
         <tbody>
-        {data.map(data => {
-          return (
-            <tr>
-              <td>{data.title}</td>
-              <td>{data.owner}</td>
-              <td><Moment format="MM/DD/YYYY, hh:mm A">{data.updatedAt}</Moment></td>
-              <td>
-                <Link to={`/editSoftware/${data.id}/${data.title}`}>
-                  <Button variant="info">Edit</Button>
-                </Link>
-              </td>
-              <td><Button onClick={() => deleteItem(data.id)}>Delete!</Button></td>
-            </tr>
-          )
-        })}
+
         </tbody>
       </Table>
     </div>

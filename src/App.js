@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
@@ -10,7 +10,7 @@ import SignUp from "./components/Authentication/signup";
 import Users from "./components/Users/AdminUsers/users";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { createStore, applyMiddleware } from 'redux'; 
 import SideBar from "./components/SidebarMenu/sidebar";
 import Dashboard from "./components/Dashboard/dashboard";
@@ -20,16 +20,28 @@ import Customer from "./components/Customer/customer";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import { css } from "@emotion/core";
 import Project from "./components/Project/project";
+import Counter from "./components/Counter";
+import {  useDispatch } from 'react-redux'
+import {getSoftware as getSoft} from "./redux/software";
+
 
 
 
 Amplify.configure(awsconfig)
 
 function App() {
+  const count = useSelector((state) => state.counter.count);
+  const dispatch = useDispatch();
+  // const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+      console.log('i fire once');
+      dispatch(getSoft())
+  }, []);
+
   const [loading, setLoading] = useState(false);
   const [authState, setAuthState] = React.useState();
   const [user, setUser] = React.useState();
-  const store = createStore(() => [], {}, applyMiddleware());
 
   const override = css`
     display: block;
@@ -41,10 +53,10 @@ function App() {
   `;
 
   React.useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false)
-    }, 4000)
+    // setLoading(true);
+    // setTimeout(() => {
+    //   setLoading(false)
+    // }, 4000)
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData);
@@ -52,7 +64,6 @@ function App() {
   }, []);
 
   return authState === AuthState.SignedIn && user ? (
-    <Provider store={store}>
       <Router>
         <listener />
 
@@ -66,6 +77,7 @@ function App() {
                 <AmplifyS3ImagePicker /> */}
                 <Switch>
                   <Route exact path="/">
+                    <h1>{count}</h1>
                     <Dashboard />
                   </Route>
                   <Route path="/software">
@@ -80,6 +92,9 @@ function App() {
                   <Route exact path="/projects">
                     <Project />
                   </Route>
+                  <Route exact path="/counter">
+                    <Counter />
+                  </Route>
                   <Route exact path="/editSoftware/:id/:name" component={EditSoftware}>
                   
                   </Route>
@@ -88,7 +103,6 @@ function App() {
             }
           </div>
       </Router>
-    </Provider>
   )  : (
   <div className="container">
     <SignUp />

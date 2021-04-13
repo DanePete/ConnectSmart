@@ -67,7 +67,6 @@ import * as yup from 'yup';
      */
     const save = async (name) => {
       const data = { name: name, is_active: true};
-      console.log(data);
       try {
         await API.graphql(graphqlOperation(createCustomer, { input: data }));
         fetchData();

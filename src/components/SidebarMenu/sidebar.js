@@ -91,6 +91,11 @@ const SideBar = props => {
       text: 'Users',
       icon: <MailIcon />,
       onClick: () => history.push('/users')
+    },
+    {
+      text: 'Counter',
+      icon: <MailIcon />,
+      onClick: () => history.push('/counter')
     }
   ];
 

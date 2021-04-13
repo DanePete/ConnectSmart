@@ -10,17 +10,6 @@ import { toast } from 'react-toastify';
  * Fetch users in editor group
  */
 
-const family = ['dane', 'katie', 'wayne', 'julie', 'ben'];
-
-console.log("Dane, Katie, Ben, Julie, Wayne");
-
-family.forEach(listFamily);
-
-function listFamily (item, index) {
-  console.log(index);
-  console.log(item);
-}
-
 const Users = () => {
   let nextToken;
   const [data, setData] = useState([]); 
