@@ -33,7 +33,7 @@ function App() {
 
   const override = css`
     display: block;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     /* bring your own prefixes */
