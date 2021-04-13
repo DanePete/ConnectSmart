@@ -86,9 +86,9 @@ import * as yup from 'yup';
         .email('Enter a valid email')
         .required('Email is required'),
       name: yup
-        .string('Enter your password')
-        .min(8, 'Password should be of minimum 8 characters length')
-        .required('Companyname is required'),
+        .string('Enter your customer name')
+        // .min(3, 'Customer should be of minimum 8 characters length')
+        .required('customer name is required'),
     });
     
     /**

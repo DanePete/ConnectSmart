@@ -17,10 +17,11 @@ const List = () => {
   const { account } = useParams()
   // const tableData = data.softwareData;
  
-  const software = useSelector((state) => state.software);
-  console.log(software);
-
-  console.log(software);
+  // const software = useSelector((state) => state.software);
+  // const tableData = software.softwareData;
+  // console.log('value');
+  // console.log(software);
+  const tableData = [];
 
   const deleteItem = async (id) => {
     try {
@@ -41,7 +42,21 @@ const List = () => {
           <th colSpan="2"></th>
         </thead>
         <tbody>
-
+        {tableData.map(tableData => {
+          return (
+            <tr>
+              <td>{tableData.title}</td>
+              <td>{tableData.owner}</td>
+              {/* <td><Moment format="MM/DD/YYYY, hh:mm A">{data.updatedAt}</Moment></td> */}
+              <td>
+                <Link to={`/editSoftware/${tableData.id}/${tableData.title}`}>
+                  <Button variant="info">Edit</Button>
+                </Link>
+              </td>
+              <td><Button onClick={() => deleteItem(tableData.id)}>Delete!</Button></td>
+            </tr>
+          )
+        })}
         </tbody>
       </Table>
     </div>

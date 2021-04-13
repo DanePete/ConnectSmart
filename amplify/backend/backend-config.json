@@ -132,5 +132,11 @@
         }
       ]
     }
+  },
+  "analytics": {
+    "connectsmart": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

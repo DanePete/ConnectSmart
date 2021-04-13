@@ -1,0 +1,21 @@
+{
+    "appName": "connectsmart",
+    "roleName": "pinpointLambdaRole863790bb",
+    "cloudformationPolicyName": "cloudformationPolicy863790bb",
+    "cloudWatchPolicyName": "cloudWatchPolicy863790bb",
+    "pinpointPolicyName": "pinpointPolicy863790bb",
+    "authPolicyName": "pinpoint_amplify_863790bb",
+    "unauthPolicyName": "pinpoint_amplify_863790bb",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

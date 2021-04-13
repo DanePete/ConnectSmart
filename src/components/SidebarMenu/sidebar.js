@@ -19,6 +19,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
+import Amplify, { Analytics } from 'aws-amplify';
 
 const drawerWidth = 240;
 
@@ -96,6 +97,16 @@ const SideBar = props => {
       text: 'Counter',
       icon: <MailIcon />,
       onClick: () => history.push('/counter')
+    }    ,
+    {
+      text: 'Trigger Analytics Event',
+      icon: <MailIcon />,
+      onClick: () => {
+        console.log("triggered click event")
+        Analytics.record({
+          name: 'button press from web'
+        })
+      }
     }
   ];
 

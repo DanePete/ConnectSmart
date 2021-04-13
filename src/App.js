@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './App.css';
-import Amplify from 'aws-amplify';
+import Amplify, { Analytics } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import Software from "./components/Software/software";
 import { AuthState, onAuthUIStateChange } from "@aws-amplify/ui-components";
@@ -10,8 +10,7 @@ import SignUp from "./components/Authentication/signup";
 import Users from "./components/Users/AdminUsers/users";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Provider, useSelector } from "react-redux";
-import { createStore, applyMiddleware } from 'redux'; 
+import { useSelector } from "react-redux";
 import SideBar from "./components/SidebarMenu/sidebar";
 import Dashboard from "./components/Dashboard/dashboard";
 import EditSoftware from "./components/Software/editSoftware";
@@ -21,23 +20,12 @@ import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import { css } from "@emotion/core";
 import Project from "./components/Project/project";
 import Counter from "./components/Counter";
-import {  useDispatch } from 'react-redux'
-import {getSoftware as getSoft} from "./redux/software";
-
-
-
 
 Amplify.configure(awsconfig)
 
 function App() {
   const count = useSelector((state) => state.counter.count);
-  const dispatch = useDispatch();
-  // const [loading, setLoading] = useState(true);
-  
-  useEffect(() => {
-      console.log('i fire once');
-      dispatch(getSoft())
-  }, []);
+
 
   const [loading, setLoading] = useState(false);
   const [authState, setAuthState] = React.useState();
@@ -53,10 +41,11 @@ function App() {
   `;
 
   React.useEffect(() => {
-    // setLoading(true);
-    // setTimeout(() => {
-    //   setLoading(false)
-    // }, 4000)
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false)
+      Analytics.record({ name: `visited Connect Smart` });
+    }, 4000)
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);
       setUser(authData);

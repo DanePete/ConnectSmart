@@ -1,6 +1,6 @@
 {
     "identityPoolName": "testAuthIdentityPool",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "reactk35bc1a04",
     "userPoolName": "reactkeymanagementrenewal",
     "autoVerifiedAttributes": [

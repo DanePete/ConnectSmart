@@ -15,7 +15,16 @@ import { decrement, increment } from '../../redux/counter'
 import {getSoftware as getSoft} from "../../redux/software";
 
 const Software = () => {
+
+  const dispatch = useDispatch();
+  // const [loading, setLoading] = useState(true);
   
+  useEffect(() => {
+      console.log('i fire once');
+      dispatch(getSoft())
+  
+  }, []);
+
   const override = css`
     display: block;
     position: fixed;
