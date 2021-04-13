@@ -102,6 +102,7 @@ export const createTicket = /* GraphQL */ `
     createTicket(input: $input, condition: $condition) {
       id
       projectID
+      is_active
       createdAt
       updatedAt
       TimeEntries {
@@ -118,6 +119,7 @@ export const updateTicket = /* GraphQL */ `
     updateTicket(input: $input, condition: $condition) {
       id
       projectID
+      is_active
       createdAt
       updatedAt
       TimeEntries {
@@ -134,6 +136,7 @@ export const deleteTicket = /* GraphQL */ `
     deleteTicket(input: $input, condition: $condition) {
       id
       projectID
+      is_active
       createdAt
       updatedAt
       TimeEntries {

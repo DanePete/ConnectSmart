@@ -13,6 +13,7 @@ type Project @model @auth(rules: [{allow: owner, ownerField: "owner"}, { allow: 
 type Ticket @model @auth(rules: [{allow: private}]) @key(name: "byProject", fields: ["projectID"]) {
   id: ID!
   projectID: ID
+  is_active: Boolean
   TimeEntries: [TimeEntry] @connection(keyName: "byTicket", fields: ["id"])
 }
 

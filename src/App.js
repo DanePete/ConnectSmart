@@ -44,7 +44,6 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false)
-      Analytics.record({ name: `visited Connect Smart` });
     }, 4000)
     return onAuthUIStateChange((nextAuthState, authData) => {
       setAuthState(nextAuthState);

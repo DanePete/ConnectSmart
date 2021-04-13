@@ -67,6 +67,7 @@ export const getTicket = /* GraphQL */ `
     getTicket(id: $id) {
       id
       projectID
+      is_active
       createdAt
       updatedAt
       TimeEntries {
@@ -85,6 +86,7 @@ export const listTickets = /* GraphQL */ `
       items {
         id
         projectID
+        is_active
         createdAt
         updatedAt
       }

@@ -107,6 +107,7 @@ const SideBar = props => {
           name: 'button press from web',
           attributes: {project: 'connectSmart'}
         })
+        console.log(Analytics.record);
       }
     }
   ];

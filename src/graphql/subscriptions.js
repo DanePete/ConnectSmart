@@ -81,6 +81,7 @@ export const onCreateTicket = /* GraphQL */ `
     onCreateTicket {
       id
       projectID
+      is_active
       createdAt
       updatedAt
       TimeEntries {
@@ -94,6 +95,7 @@ export const onUpdateTicket = /* GraphQL */ `
     onUpdateTicket {
       id
       projectID
+      is_active
       createdAt
       updatedAt
       TimeEntries {
@@ -107,6 +109,7 @@ export const onDeleteTicket = /* GraphQL */ `
     onDeleteTicket {
       id
       projectID
+      is_active
       createdAt
       updatedAt
       TimeEntries {
