@@ -60,13 +60,14 @@ import * as yup from 'yup';
     };
     const handleClose = () => {
       setOpen(false);
-    };
+  };
 
     /**
      * Saving form data calling createCustomer graphQL mutation
      */
-    const save = async (name) => {
-      const data = { name: name, is_active: true};
+    const save = async (name, primary_customer) => {
+      const data = { name: name, is_active: true, primary_contact_name: "primary_customer", secondary_contact_name: "secondary customer"};
+      console.log(primary_customer);
       try {
         await API.graphql(graphqlOperation(createCustomer, { input: data }));
         fetchData();
@@ -108,17 +109,18 @@ import * as yup from 'yup';
 
     return (
       <div>
-        <h1>Customers</h1>
-        <Button            
-          variant="contained"
-          color="primary"
-          size="large"
-          className={classes.button}
-          startIcon={<SaveIcon />}
-          onClick={handleClickOpen}>
-            Add Customer
-        </Button>
-
+        <div id="table-controls">
+          <h1>Customers</h1>
+          <Button            
+            variant="contained"
+            color="primary"
+            size="large"
+            className={classes.button}
+            startIcon={<SaveIcon />}
+            onClick={handleClickOpen}>
+              Add Customer
+          </Button>
+        </div>
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Add Customer</DialogTitle>
           <DialogContent>
@@ -148,6 +150,16 @@ import * as yup from 'yup';
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}
               />
+
+              <label htmlFor="email">Primary Customer Name</label>
+              <TextField
+                id="primary_customer"
+                placeholder="foobar"
+                value={formik.values.primary_customer}
+                onChange={formik.handleChange}
+                // error={formik.touched.email && Boolean(formik.errors.email)}
+                // helperText={formik.touched.email && formik.errors.email}
+              />            
 
               <label htmlFor="active">Active?</label>
               <Checkbox 

@@ -9,9 +9,14 @@ import {deleteProject} from "../../graphql/mutations";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
 
 const List = ({data, fetchData}) => {
   const { account } = useParams()
+
+  const software = useSelector((state) => state.software);
+  const tableData = software.softwareData;
+  console.log(tableData);
 
   const deleteItem = async (id) => {
     try {

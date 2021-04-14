@@ -4,6 +4,14 @@
   display: flex;
 }
 
+.table-controls-left {
+  float: left;
+}
+
+table-controls-right {
+  float: right;
+}
+
 .bottomPush {
   position: fixed;
   bottom: 0;

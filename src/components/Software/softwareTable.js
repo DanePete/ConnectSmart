@@ -17,11 +17,8 @@ const List = () => {
   const { account } = useParams()
   // const tableData = data.softwareData;
  
-  // const software = useSelector((state) => state.software);
-  // const tableData = software.softwareData;
-  // console.log('value');
-  // console.log(software);
-  const tableData = [];
+  const software = useSelector((state) => state.software);
+  const tableData = software.softwareData;
 
   const deleteItem = async (id) => {
     try {
@@ -42,7 +39,7 @@ const List = () => {
           <th colSpan="2"></th>
         </thead>
         <tbody>
-        {tableData.map(tableData => {
+        {tableData?.map(tableData => {
           return (
             <tr>
               <td>{tableData.title}</td>

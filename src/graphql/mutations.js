@@ -211,6 +211,7 @@ export const createCustomer = /* GraphQL */ `
       id
       name
       is_active
+      primary_contact_name
       customer_phone
       customer_url
       createdAt
@@ -230,6 +231,7 @@ export const updateCustomer = /* GraphQL */ `
       id
       name
       is_active
+      primary_contact_name
       customer_phone
       customer_url
       createdAt
@@ -249,6 +251,7 @@ export const deleteCustomer = /* GraphQL */ `
       id
       name
       is_active
+      primary_contact_name
       customer_phone
       customer_url
       createdAt

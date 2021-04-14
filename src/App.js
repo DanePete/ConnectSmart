@@ -26,7 +26,6 @@ Amplify.configure(awsconfig)
 function App() {
   const count = useSelector((state) => state.counter.count);
 
-
   const [loading, setLoading] = useState(false);
   const [authState, setAuthState] = React.useState();
   const [user, setUser] = React.useState();

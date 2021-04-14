@@ -32,6 +32,7 @@ type Customer @model @auth(rules: [{allow: private}]) {
   id: ID!
   name: String
   is_active: Boolean
+  primary_contact_name: String
   customer_phone: AWSPhone
   customer_url: AWSURL
   Contacts: [Contact] @connection(keyName: "byCustomer", fields: ["id"])
