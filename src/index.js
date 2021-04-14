@@ -5,7 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store'
 import { Provider } from 'react-redux'
-import { useSelector, useDispatch } from 'react-redux'
+
+// src/index.js
+import Analytics from '@aws-amplify/analytics';
+// ...
+Analytics.autoTrack('pageView', {
+  enable: true,
+  type: 'SPA',
+});
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
